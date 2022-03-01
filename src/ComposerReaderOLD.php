@@ -38,7 +38,7 @@ class ComposerReader
   //  private $composerSchema;
     private static string $_fileContent;
     
-    public array $jsonSchema;
+    private array $jsonSchema;
     
     /**
      * Method __construct
@@ -136,27 +136,29 @@ class ComposerReader
         if (isset($this->jsonSchema[$propertyName])) {
             return $this->jsonSchema[$propertyName];
         } else {
-            return array();
+            throw new \InvalidArgumentException('NE Propiedad SCHEMA '.$propertyName);
         }
 
     }
 
     public function getTreePkgSchema(string $masterRepository): array
     {
+        $treeRepositoryArray = array();
 
-        $this->getJson(); 
+        
 
-    //    $requireArray = $this->getPropertySchema('require');
+        $requireArray = $this->getPropertySchema('require');
 
         $pkgNameString = $this->getPropertySchema('name');
 
         $pkgTypeString = $this->getPropertySchema('type');
 
+
         foreach ($requireArray as $pkgNameString => $pkgVersionString) {
 
             list($vendorNameString,$projectNameString) = array_pad(explode('/', $pkgNameString), 2, null);
         
-            if ($masterRepository == $vendorNameString) {
+            if ($masterRepository === $vendorNameString) {
                 $treeRepositoryArray[$projectNameString] = array(
                     "type" => $pkgTypeString,
                     "name" => $vendorNameString,
@@ -170,7 +172,8 @@ class ComposerReader
 
 }
 
-$file = '../../../Repositorios_Ampliffy/Proyecto1/composer.json';
+$file = '../../../Proyecto1/composer.json';
+//$file = '../../../libreria1/composer.json';
 
 $masterRepository = 'fabiosan75'; // Vendor Name directorio que contiene el repositorio
 
@@ -179,29 +182,11 @@ $masterRepository = 'fabiosan75'; // Vendor Name directorio que contiene el repo
 $composerReader = new ComposerReader($file);
 var_dump($composerReader);
 $composerReader->readFile();
+$composerReader->getJson(); 
 
 $treePkgArray = $composerReader->getTreePkgSchema($masterRepository);
 
 print_r($treePkgArray);
 
-/*
-$composerMetaJson = $composerReader->getJson(); 
-
-$requireArray = $composerReader->getPropertySchema($composerMetaJson, 'require');
-
-$libraryNameArray = $composerReader->getPropertySchema($composerMetaJson, 'name');
-
-var_dump($libraryNameArray);
-
-
-foreach ($requireArray as $pkgNameString => $pkgVersionString) {
-
-    list($vendorNameString,$projectNameString) = array_pad(explode('/', $pkgNameString), 2, null);
-
-    if ($masterRepository == $vendorName) {
-        echo $vendorNameString.' - '.$projectNameString. PHP_EOL; 
-    }
-}
-*/
 
 ?>

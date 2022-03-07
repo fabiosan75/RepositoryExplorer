@@ -107,8 +107,12 @@ function tree($path, $exclude = array()): array
 
 
 echo "Lista scandir ";
-$files = scandir($path);
-$files = array_diff(scandir($path), $ignoreArray);
+$ignoreArray = array(
+    '.', '..', '.git',
+    'vendor', 'src', 'README.md', '.gitignore', 'bin'
+);
+$files = scandir('./');
+$files = array_diff($files, $ignoreArray);
 
 foreach ($files as $file) {
     echo ("$file \n");

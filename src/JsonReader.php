@@ -2,11 +2,17 @@
 
 namespace GetTreeRepository;
 
-use JsonReaderInterface;
-use FileReaderInterface;
+use GetTreeRepository\Interfaces\JsonReaderInterface;
+use GetTreeRepository\Interfaces\FileReaderInterface;
 
 /**
- * JsonReader
+ * Class JsonReader : Implementa los metodos para el acceso al FileSystem
+ * 
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
  */
 
 class JsonReader implements JsonReaderInterface
@@ -27,17 +33,16 @@ class JsonReader implements JsonReaderInterface
      * @return void
      */
 
-    public function __construct(FileReaderInterface $fileReader )
+    public function __construct(FileReaderInterface $fileReader,string $filePath )
     {
-
-      //  $this->_filename = $filename;
         $this->fileReader = $fileReader;
-    
+        $this->_filePath = $filePath;
+
     }
 
     public function getContent(string $filename): string
     {
-        return $this->fileReader->readfile($filename);
+        return $this->fileReader->readfile($this->_filePath);
     }
 
 }

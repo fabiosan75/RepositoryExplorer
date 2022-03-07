@@ -2,15 +2,21 @@
 
 namespace GetTreeRepository;
 
-use FileReaderInterface;
+use GetTreeRepository\Interfaces\FileReaderInterface;
 
 /**
-* FileSystem
-*/
-class FileSystem implements FileReaderInterface 
+ * FileReader : Implementa los metodos para el acceso al FileSystem
+ * 
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
+ */
+class FileReader implements FileReaderInterface
 {
     
-    private $_filename;
+    private $_fileName;
     
     /**
      * Method __construct
@@ -19,23 +25,29 @@ class FileSystem implements FileReaderInterface
      *
      * @return void
      */
-
-   // public function __construct(string $filename)
-   // {
-   //         $this->_filename = $filename;       
-   // }
-        
+    public function __construct(string $filename)
+    {
+            $this->_fileName = $filename;       
+    }
+         
     /**
-     * Method canReadFile Valida si $filename es archivo y tiene permisos de lectura
+     * Method getFileName
      *
-     * @param string $filename [Nombre de Archivo a validar con su PATH <src>\name]
+     * @return string
+     */
+    public function getFileName():string
+    {
+            return $this->_fileName;       
+    }
+
+    /**
+     * Method canReadFile Valida si $_fileName es archivo y tiene permisos de lectura
      *
      * @return bool
      */
-
-    public static function canReadFile(string $filename):bool
+    public function canReadFile():bool
     {
-        if (is_file(string $filename) && is_readable(string $filename)) {
+        if (is_file($this->_fileName) && is_readable($this->_fileName) ) {
             return true;
         } else {
             return false;
@@ -44,18 +56,16 @@ class FileSystem implements FileReaderInterface
     }
          
     /**
-     * Method readFile Lee y retorna el contenido de un archivo
-     *
-     * @param string $filename [explicite description]
+     * Method readFile Lee y retorna el contenido del archivo $_fileName
      *
      * @return string
      */
-    public function readFile( string $filename): string {
-
-        if (!$this->canReadFile($filename)) {
-            throw new \RuntimeException("Error Lectura Archivo :". $filename);
+    public function readFile():string 
+    {
+        if (!$this->canReadFile($this->_fileName)) {
+            throw new \RuntimeException("Error Lectura Archivo :". $this->_fileName);
         } else {
-            return file_get_contents($filename);
+            return file_get_contents($this->_fileName);
         }
     
     }

@@ -1,0 +1,21 @@
+{
+    "name": "fabiosan75/get-tree-repository",
+    "description": "Prueba AMpliffy",
+    "type": "project",
+    "license": "propietary",
+    "autoload": {
+        "psr-4": {
+            "GetTreeRepository\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fabiosan75",
+            "email": "fabiosan75@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}

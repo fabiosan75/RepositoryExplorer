@@ -7,9 +7,20 @@ use FileSystemReaderInterface;
 /**
 * FileSystem
 */
-class FileSystem implements FileSystemReaderInterface 
+class DirectoryReader implements DirectoryReaderInterface 
 {
     
+    protected $path;
+
+    public function __construct(string $path)
+    {
+            $this->path = $filename;       
+    }
+
+    public function getPath():string
+    {
+            return $this->path;       
+    }
 
     /**
     * Method listDirectory
@@ -18,7 +29,8 @@ class FileSystem implements FileSystemReaderInterface
     *
     * @return array
     */
-    public static function listDirectory( string $dirpath, string $pattern):array
+    
+    public function listDirectory( string $dirpath, string $pattern):array
     {
         
         $files = [];
@@ -47,38 +59,6 @@ class FileSystem implements FileSystemReaderInterface
         
     }
         
-    /**
-     * Method canReadFile Valida si $filename es archivo y tiene permisos de lectura
-     *
-     * @param string $filename [Nombre de Archivo a validar con su PATH <src>\name]
-     *
-     * @return bool
-     */
-    public static function canReadFile(string $filename):bool
-    {
-        if (is_file($filename) && is_readable($filename)) {
-            return true;
-        } else {
-                return false;
-        }
-        
-    }
-         
-    /**
-     * Method readFile Lee y retorna el contenido de un archivo
-     *
-     * @param string $filename [explicite description]
-     *
-     * @return string
-     */
-    public function readFile( string $filename): string {
 
-        if (!$this->canReadFile($filename)) {
-            throw new \RuntimeException("Error Lectura Archivo :". $filename);
-        } else {
-            return file_get_contents($filename);
-        }
-    
-    }
     
 }

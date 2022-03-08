@@ -2,21 +2,39 @@
 
 namespace GetTreeRepository\Interfaces;
 
+/**
+ * JsonDecoderInterface
+ */
 interface JsonDecoderInterface
 {
     
     /**
-     * Method getContent
+     * Method getSchema
      *
      * @return string
      */
     public function getSchema(): string;
-
-    public function loadSchema(): void;
-
+    
+    /**
+     * Method loadSchema
+     *
+     * @return void
+     */
+    public function loadSchema(): array;
+    
+    /**
+     * Method validateJsonFormat
+     *
+     * @return bool
+     */
     public function validateJsonFormat(): bool;
-
-    public function decodeSchema();
+    
+    /**
+     * Method decodeSchema
+     *
+     * @return void
+     */
+   // public function decodeSchema();
 
    // public function getPropertySchema(string $propertyName);
 

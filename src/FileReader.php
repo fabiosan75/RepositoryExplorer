@@ -21,7 +21,7 @@ class FileReader implements FileReaderInterface
     /**
      * Method __construct
      *
-     * @param string $filename [explicite description]
+     * @param string $filename FilePath
      *
      * @return void
      */

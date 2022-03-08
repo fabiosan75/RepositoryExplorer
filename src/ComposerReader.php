@@ -4,7 +4,7 @@ namespace GetTreeRepository;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use GetTreeRepository\Interfaces\FileReaderInterface;
+use GetTreeRepository\FileReader;
 use GetTreeRepository\Interfaces\JsonDecoderInterface;
 
 /**
@@ -39,12 +39,10 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
 class ComposerReader
 {
 
-    private string $_file;
-  //  private $composerSchema;
-    private static $_fileContent;
+    private iterable $_dataSchema = [];
+  //  public $jsonDecoder;
 
-    private $_dataSchema;
-    public $jsonDecoder;
+    public $config = [];
    
     /**
      * Method __construct
@@ -55,21 +53,15 @@ class ComposerReader
      */
     public function __construct(JsonDecoderInterface $jsonDecoder)
     { 
-        $this->jsonDecoder = $jsonDecoder;
-        $this->jsonDecoder->loadSchema();
-        $this->_dataSchema = $this->jsonDecoder->decodeSchema();   
-            
+       // $this->jsonDecoder = $jsonDecoder;
+        $this->_dataSchema = $jsonDecoder->loadSchema();
+      //  $this->_dataSchema = $this->jsonDecoder->decodeSchema();   
+        $this->loadConfig();
     }
-    
-   // public function getComposerSchema()
-   // {
-   //     $this->jsonDecoder->loadSchema();
-   // }
-
-        /**
+ 
+    /**
      * Method getPropertySchema
      *
-     * @param array $jsonSchema array asociativo con la estrucra del SCHEMA
      * @param string $propertyName nombre de la propiedad o grupo de elementos a extraer
      *
      * @return array
@@ -79,21 +71,48 @@ class ComposerReader
         if (isset($this->_dataSchema[$propertyName])) {
             return $this->_dataSchema[$propertyName];
         } else {
-            throw new \InvalidArgumentException('NE Propiedad SCHEMA '.$propertyName);
+            throw new \UnexpectedValueException("NE Propiedad {$propertyName} en SCHEMA ");
         }
+    }
+
+    public function loadConfig()
+    {
+        if (!empty($this->_dataSchema)) {
+            foreach ( $this->_dataSchema as $key => $value) {
+                $this->config[$key] = $value;
+            }
+
+        } else {
+            throw new \UnexpectedValueException("SCHEMA Vacio");
+        }
+    }
+    
+    public function getAttrArray(string $attrName): array
+    {
+
+        if (array_key_exists($attrName, $this->config) 
+            && is_array($this->config["$attrName"])
+            && count($this->config["$attrName"])
+        ) {
+
+            return $this->config["$attrName"]; 
+        }
+
+        return [];
 
     }
 
-    public function checkPkgName(string $pkgName): bool{
+    public function checkPkgName(string $pkgName): bool
+    {
 
-        if (empty($pkgName))
+        if (empty($pkgName)) {
             return false;
-
+        }
         $pkgNameString = $this->getPropertySchema('name');
 
-        if (empty($pkgNameString) || ($pkgNameString != $pkgName))
+        if (empty($pkgNameString) || ($pkgNameString != $pkgName)) {
             return false;
-
+        }
     }
 
     public function getTreePkgSchema(string $masterRepository)
@@ -124,31 +143,25 @@ class ComposerReader
 
     } // End method getTreePkgSchema
 
-
 }
 
-$file = '../../Proyecto1/composer.json';
+$file = $argv[1];//'../../Proyecto1/composer.json';
 //$file = '../../../libreria1/composer.json';
 
 $masterRepository = 'fabiosan75'; // Vendor Name directorio que contiene el repositorio
 
 //$composerMeta = array();
 
-
 $reader = new FileReader($file);
 
-$decoder = new JsonDecoder($reader, true);
-
-//$contentschema = $composerdecoder->getContent();
+$decoder = new JsonDecoder($file, $reader);
 
 $composerReader = new ComposerReader($decoder);
 
+$dependency = $composerReader->getAttrArray('require');
+$dependency = $composerReader->getAttrArray('repositories');
 
-var_dump($composerReader);
-//$composerreader->getComposerSchema();
-//$composerReader->getJson(); 
-
-//$treePkgArray = $composerreader->getComposerSchema();
+var_dump($dependency);
 
 $masterRepository = 'fabiosan75';
 $treePkgArray = $composerReader->getTreePkgSchema($masterRepository);

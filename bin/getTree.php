@@ -1,7 +1,10 @@
-#!/usr/local/bin/php
 <?php
+//#!/usr/local/bin/php
 
-//$ignoreArray = array();
+$ignoreArray = array(
+    '.', '..', '.git', 'composer',
+    'vendor', 'src', 'README.md', '.gitignore', 'bin'
+);
 
 if (!posix_isatty(STDOUT)) {
     fwrite(STDOUT, "Invalid TTY\n");
@@ -39,6 +42,10 @@ function listdir($dir, $pattern):array
     return $files;
 }
 
+$listFiles = graphicTree($path, 10, $ignoreArray);
+
+var_dump($listFiles);
+exit;
 $files = listdir($path, '/(composer.json)/');
 print_r($files);
 foreach ($files AS $dirName => $file) {
@@ -66,10 +73,7 @@ exit;
 echo ($_SERVER["SCRIPT_NAME"]) . PHP_EOL;
 echo $path . PHP_EOL . PHP_EOL;
 
-$ignoreArray = array(
-    '.', '..', '.git', 'composer',
-    'vendor', 'src', 'README.md', '.gitignore', 'bin'
-);
+
 //print_r($argc);
 
 /*
@@ -83,7 +87,7 @@ $files = new RecursiveCallbackFilterIterator($dir, function($file, $key, $iterat
 */
 
 
-graphicTree($path, 10, $ignoreArray);
+//graphicTree($path, 10, $ignoreArray);
 
 //$listFiles = listFolderFiles ($path,$ignoreArray);
 //print_r($listFiles);
@@ -148,34 +152,39 @@ function listFolderFiles(string $path, array $ignoreArray): array
 }
 
 
-function graphicTree($basePath, int $root, $ignoreArray)
+function graphicTree($basePath, int $root, $ignoreArray): array
 {
     $path = '';
+    $fileList = [];
 
-    if (!is_dir($basePath))
-        return;
+    if (is_dir($basePath)) {
 
-    $dir = opendir($basePath);
+        $dir = opendir($basePath);
 
-    while (($fileName = readdir($dir)) !== false) {
+        while (($fileName = readdir($dir)) !== false) {
 
-        if (!in_array(basename($fileName), $ignoreArray)) {
-            echo basename($fileName);
-            for ($i = 0; $i < $root; $i++) {
-                if ($i % 2 == 0 || $i == 0) {
-                    printf("%c", '└'); //179 └ ├ │ ─
-                } else {
-                    printf(" ");
+            if (!in_array(basename($fileName), $ignoreArray)) {
+            //  echo basename($fileName);
+                for ($i = 0; $i < $root; $i++) {
+                    if ($i % 2 == 0 || $i == 0) {
+                        printf("%c", '└'); //179 └ ├ │ ─
+                    } else {
+                        printf(" ");
+                    }
                 }
+
+                printf("%s%s%s\n", '├', '──', $fileName);
+
+                $path = $basePath . '/' . $fileName; // strcpy($path, $basePath);
+            // $fileList[] = $path;
+            //  graphicTree($path, $root + 5, $ignoreArray);
+                $fileList = array_merge($fileList, graphicTree($path, $root + 5, $ignoreArray));
+
             }
-
-            printf("%s%s%s\n", '├', '──', $fileName);
-
-            $path = $basePath . '/' . $fileName; // strcpy($path, $basePath);
-
-            graphicTree($path, $root + 5, $ignoreArray);
         }
+
+        closedir($dir);
     }
 
-    closedir($dir);
+    return $fileList;
 }

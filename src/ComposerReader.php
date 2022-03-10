@@ -3,6 +3,7 @@
 namespace GetTreeRepository;
 
 use GetTreeRepository\ComposerException;
+use GetTreeRepository\Interfaces\ComposerReaderInterface;
 //use GetTreeRepository\Interfaces\FileReaderInterface;
 use GetTreeRepository\Interfaces\JsonDecoderInterface;
 
@@ -31,7 +32,7 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-class ComposerReader
+class ComposerReader implements ComposerReaderInterface
 {
 
     private iterable $_dataSchema = [];
@@ -171,7 +172,7 @@ class ComposerReader
             return false;
         }
     }
-
+/*
     public function getTreePkgSchema(string $masterRepository)
     {
         $treeRepositoryArray = array();
@@ -199,6 +200,6 @@ class ComposerReader
         return $treeRepositoryArray;
 
     } // End method getTreePkgSchema
-
+*/
 }
 ?>

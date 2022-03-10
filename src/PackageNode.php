@@ -2,254 +2,275 @@
 
 namespace GetTreeRepository;
 
+use GetTreeRepository\Interfaces\ComposerReaderInterface;
+
 class PackageNode
 {
 
-    private $idNode;
+    private $_idNode;
 
-    private $idPackage;
+    private $_idPackage;
 
-    private $name;
+    private $_name;
 
-    private $vendor;
+    private $_vendor;
 
-    private $version;
+    private $_version;
 
-    private $source;
+    private $_source;
 
-    private $type;
+    private $_type;
 
-    private $license;
+    private $_license;
 
-    private $authors;
+    private $_authors;
 
-    private $attributes = array();
+    private $_attributes = array();
 
-    private $repositories = array();
+    private $_repositories = array();
 
-    private $require = array();
+    private $_require = array();
 
-    public function __construct()
+    public $composerReaderI;
+
+    public function __construct(ComposerReaderInterface $composerReader)
     {
-        $this->property = $property;
+        $this->composerReaderI = $composerReader;
     }
 
-   
 
     /**
-     * Get the value of idNode
+     * Get the value of _idNode
      */ 
-    public function getIdNode()
+    public function get_idNode()
     {
-        return $this->idNode;
+        return $this->_idNode;
     }
 
     /**
-     * Set the value of idNode
+     * Set the value of _idNode
      *
-     * @return  self
+     * @return self
      */ 
-    public function setIdNode($idNode)
+    public function set_idNode($idNode)
     {
-        $this->idNode = $idNode;
+        $this->_idNode = $idNode;
 
     }
 
     /**
-     * Get the value of idPackage
+     * Get the value of _idPackage
      */ 
-    public function getIdPackage()
+    public function get_idPackage()
     {
-        return $this->idPackage;
+        return $this->_idPackage;
     }
 
     /**
-     * Set the value of idPackage
+     * Set the value of _idPackage
      *
-     * @return  self
+     * @return self
      */ 
-    public function setIdPackage($idPackage)
+    public function set_idPackage($idPackage)
     {
-        $this->idPackage = $idPackage;
+        $this->_idPackage = $idPackage;
     }
 
     /**
-     * Get the value of name
+     * Get the value of _name
      */ 
-    public function getName()
+    public function get_name()
     {
-        return $this->name;
+        return $this->_name;
     }
 
     /**
-     * Set the value of name
+     * Set the value of _name
      *
-     * @return  self
+     * @return self
      */ 
-    public function setName($name)
+    public function set_name($name)
     {
-        $this->name = $name;
+        $this->_name = $name;
     }
 
     /**
-     * Get the value of vendor
+     * Get the value of _vendor
      */ 
-    public function getVendor()
+    public function get_vendor()
     {
-        return $this->vendor;
+        return $this->_vendor;
     }
 
     /**
-     * Set the value of vendor
+     * Set the value of _vendor
      *
-     * @return  self
+     * @return self
      */ 
-    public function setVendor($vendor)
+    public function set_vendor($vendor)
     {
-        $this->vendor = $vendor;
+        $this->_vendor = $vendor;
     }
 
     /**
-     * Get the value of version
+     * Get the value of _version
      */ 
-    public function getVersion()
+    public function get_version()
     {
-        return $this->version;
+        return $this->_version;
     }
 
+    
     /**
-     * Set the value of version
+     * Method setVersion
      *
-     * @return  self
-     */ 
-    public function setVersion($version)
-    {
-        $this->version = $version;
-    }
-
-    /**
-     * Get the value of source
-     */ 
-    public function getSource()
-    {
-        return $this->source;
-    }
-
-    /**
-     * Set the value of source
+     * @param $version 
      *
-     * @return  self
-     */ 
-    public function setSource($source)
+     * @return void
+     */
+    public function set_version($version)
     {
-        $this->source = $source;
+        $this->_version = $version;
     }
 
     /**
-     * Get the value of type
+     * Get the value of _source
      */ 
-    public function getType()
+    public function get_source()
     {
-        return $this->type;
+        return $this->_source;
     }
 
     /**
-     * Set the value of type
+     * Set the value of _source
      *
-     * @return  self
+     * @return self
      */ 
-    public function setType($type)
+    public function set_source($source)
     {
-        $this->type = $type;
+        $this->_source = $source;
     }
 
     /**
-     * Get the value of license
+     * Get the value of _type
      */ 
-    public function getLicense()
+    public function get_Type()
     {
-        return $this->license;
+        return $this->_type;
     }
 
     /**
-     * Set the value of license
+     * Set the value of _type
      *
-     * @return  self
      */ 
-    public function setLicense($license)
+    public function set_Type($type)
     {
-        $this->license = $license;
+        $this->_type = $type;
     }
 
     /**
-     * Get the value of authors
+     * Get the value of _license
      */ 
-    public function getAuthors()
+    public function get_License()
     {
-        return $this->authors;
+        return $this->_license;
     }
 
     /**
-     * Set the value of authors
+     * Set the value of _license
      *
-     * @return  self
+     * @return self
      */ 
-    public function setAuthors($authors)
+    public function set_License($license)
     {
-        $this->authors = $authors;
+        $this->_license = $license;
     }
 
     /**
-     * Get the value of attributes
+     * Get the value of _authors
      */ 
-    public function getAttributes()
+    public function get_Authors()
     {
-        return $this->attributes;
+        return $this->_authors;
     }
 
     /**
-     * Set the value of attributes
+     * Set the value of _authors
      *
-     * @return  self
+     * @return self
      */ 
-    public function setAttributes($attributes)
+    public function set_Authors($authors)
     {
-        $this->attributes = $attributes;
+        $this->_authors = $authors;
     }
 
     /**
-     * Get the value of repositories
+     * Get the value of _attributes
      */ 
-    public function getRepositories()
+    public function get_attributes()
     {
-        return $this->repositories;
+        return $this->_attributes;
     }
 
     /**
-     * Set the value of repositories
+     * Set the value of _attributes
      *
-     * @return  self
+     * @return self
      */ 
-    public function setRepositories($repositories)
+    public function set_attributes($attributes)
     {
-        $this->repositories = $repositories;
+        $this->_attributes = $attributes;
     }
 
     /**
-     * Get the value of require
+     * Get the value of _repositories
      */ 
-    public function getRequire()
+    public function get_Repositories()
     {
-        return $this->require;
+        return $this->_repositories;
     }
 
     /**
-     * Set the value of require
+     * Set the value of _repositories
      *
-     * @return  self
+     * @return self
      */ 
-    public function setRequire($require)
+    public function set_Repositories($repositories)
     {
-        $this->require = $require;
+        $this->_repositories = $repositories;
     }
+     
+    /**
+     * Method getRequire
+     *
+     * @return void
+     */
+    public function get_Require()
+    {
+        return $this->_require;
+    }
+
+    /**
+     * Set the value of _require
+     */ 
+    public function set_Require($require)
+    {
+        $this->_require = $require;
+    }
+
+    public function setProperties(array $attrNames = array('name','license','type'))
+    {
+
+        foreach ( $attrNames as $key => $attrName) {
+
+            if ($this->composerReaderI->hasAttribute($attrName)) {
+                $methodName = 'set_'.$attrName;
+                $value = $this->composerReaderI->getAttribute($attrName);
+                $this->$methodName($value);
+            }        
+        }
+
+        $this->set_attributes($this->composerReaderI->config);
+    }
+
 }

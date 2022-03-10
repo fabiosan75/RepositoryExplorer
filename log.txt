@@ -1,0 +1,177 @@
+09-03-2022 13:13:13: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+09-03-2022 13:13:16: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+09-03-2022 13:14:15: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+09-03-2022 13:15:10: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+09-03-2022 13:17:48: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+09-03-2022 13:18:22: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+09-03-2022 13:18:41: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+09-03-2022 13:20:20: json Error 101  SCHEMA Vacio /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:20:20: json Error 73 NE Propiedad require en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:20:20: json Error 73 NE Propiedad require en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:20:20: json Error 73 NE Propiedad name en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:20:20: json Error 73 NE Propiedad type en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:24:34: json Error 101  SCHEMA Vacio :../Proyecto1/composer.json/Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:24:34: json Error 73 NE Propiedad require en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:24:34: json Error 73 NE Propiedad require en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:24:34: json Error 73 NE Propiedad name en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:24:34: json Error 73 NE Propiedad type en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:25:50: json Error 101  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:25:50: json Error 73 NE Propiedad require en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:25:50: json Error 73 NE Propiedad require en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:25:50: json Error 73 NE Propiedad name en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 13:25:50: json Error 73 NE Propiedad type en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 20:44:38: json Error 101  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 20:44:38: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 20:44:38: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 20:44:38: json Error 73 NE Propiedad 'name' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 20:44:38: json Error 73 NE Propiedad 'type' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:08:08: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:08:08: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:08:11: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:08:11: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:22: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:22: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:37: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:37: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:54: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:09:54: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:13:31: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:13:31: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:14:04: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:14:04: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:14:12: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:14:12: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:15:13: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:15:13: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:17:29: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:17:29: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:17:38: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:17:38: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:19:52: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:19:52: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:20:41: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:20:47: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:22:00: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:22:07: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:25:19: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:25:21: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:25:27: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:25:27: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:26:34: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:26:37: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:30:12: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:30:15: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:31:36: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:31:40: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:32:24: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:32:27: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:33:20: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:33:20: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:33:24: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:33:24: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:34:35: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:34:38: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:38:36: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:38:37: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:47:47: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:47:53: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:49:53: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:50:00: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:53:55: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:54:00: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:58:27: json Error 56 Error de Formato Json ../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+09-03-2022 21:58:27: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:59:02: json Error 56 Formato Json Invalido ../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+09-03-2022 21:59:02: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 21:59:13: json Error 56 Formato Json Invalido ../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+09-03-2022 21:59:13: json Error 102  SCHEMA Vacio :../Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 22:01:24: json Error 76 Error Lectura Archivo :../Proyecto1/composer.jso /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+09-03-2022 22:01:47: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 22:01:53: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+09-03-2022 23:15:08: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+

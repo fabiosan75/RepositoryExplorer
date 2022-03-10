@@ -22,49 +22,46 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
 class JsonDecoder implements JsonDecoderInterface
 {
 
-    private $fileReader;
-
-    private $assoc;
-
-    private $depth;
-
-    private $options;
+    public $fileReader;
     
     private string $_jsonSchema;
-
-    public $jsonReader;
     
     /**
      * Method __construct
      *
-     * @param $filePath Ruta al archivo .json
+     * @param $reader Instancia FileReaderInterface para acceso al .json
      * 
      * @return void
      */
-    public function __construct(string $filePath,FileReaderInterface $reader ) 
+    public function __construct(FileReaderInterface $reader ) 
     {
-        $this->filePath = $filePath;
-        $this->fileReader = $reader;// $fileReader;
-    //    $this->assoc   = $assoc;
-    //    $this->depth   = $depth;
-    //    $this->options = $options;
-        
+        $this->fileReader = $reader;        
     }
  
     /**
      * Method getContent Lee el contenido del archivo $_filepath 
      *
-     * @return string
+     * @param $file Instancia FileReaderInterface para acceso al .json
+     * 
+     * @return array
      */
-    public function loadSchema(): array
+    public function loadSchema(string $file): array
     {
         $dataSchema = [];
-        $this->_jsonSchema = $this->fileReader->readfile();
 
-        if ($this->validateJsonFormat()) {
-            $dataSchema = json_decode($this->_jsonSchema,true);
+        $this->_jsonSchema = $this->fileReader->readfile($file);
 
-        } 
+        try {
+            if ($this->validateJsonFormat()) {
+                $dataSchema = json_decode($this->_jsonSchema, true);
+            } else {
+                throw new ComposerException("Formato Json Invalido ".$file);
+            } 
+
+        }
+        catch (ComposerException $e) {  
+                $e->jsonError();
+        }
 
         return $dataSchema;
 
@@ -88,11 +85,23 @@ class JsonDecoder implements JsonDecoderInterface
      */
     public function validateJsonFormat(): bool 
     {
+
         if (!empty($this->_jsonSchema)) {
-            json_decode($this->_jsonSchema);
+            @json_decode($this->_jsonSchema);
             return (json_last_error() === JSON_ERROR_NONE);
         }
+        
         return false;
     }
     
+    /**
+     * Method getFilePath
+     *
+     * @return string
+     */
+    public function getFilePath(): string
+    {
+        return $this->fileReader->getFileName();
+    }
+
 }

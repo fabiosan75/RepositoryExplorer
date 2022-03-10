@@ -2,9 +2,8 @@
 
 namespace GetTreeRepository;
 
-require_once __DIR__.'/../vendor/autoload.php';
-
-use GetTreeRepository\FileReader;
+use GetTreeRepository\ComposerException;
+//use GetTreeRepository\Interfaces\FileReaderInterface;
 use GetTreeRepository\Interfaces\JsonDecoderInterface;
 
 /**
@@ -17,7 +16,6 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
- *
  */
 
 /**
@@ -32,61 +30,120 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
- *
  */
-
-
 class ComposerReader
 {
 
     private iterable $_dataSchema = [];
-  //  public $jsonDecoder;
+    public $jsonDecoder;
 
     public $config = [];
    
     /**
      * Method __construct
      *
-     * @param $file $file Ruta al archivo [path/composer.json] a procesar
+     * @param $file Ruta al archivo [path/composer.json] a procesar
      *
      * @return void
      */
-    public function __construct(JsonDecoderInterface $jsonDecoder)
+    public function __construct(string $file)
     { 
-       // $this->jsonDecoder = $jsonDecoder;
-        $this->_dataSchema = $jsonDecoder->loadSchema();
-      //  $this->_dataSchema = $this->jsonDecoder->decodeSchema();   
-        $this->loadConfig();
+        $this->file = $file;
+        $reader = new FileReader($file);
+        $jsonDecoder = new JsonDecoder($reader);
+      //  $this->_dataSchema = $jsonDecoder->loadSchema($this->file);
+        $this->loadConfig($jsonDecoder);
     }
  
     /**
      * Method getPropertySchema
      *
-     * @param string $propertyName nombre de la propiedad o grupo de elementos a extraer
+     * @param string $propertyName Nombre de la propiedad o grupo 
+     *                             de elementos a extraer
      *
      * @return array
      */
     public function getPropertySchema(string $propertyName)
     {
-        if (isset($this->_dataSchema[$propertyName])) {
-            return $this->_dataSchema[$propertyName];
-        } else {
-            throw new \UnexpectedValueException("NE Propiedad {$propertyName} en SCHEMA ");
-        }
-    }
-
-    public function loadConfig()
-    {
-        if (!empty($this->_dataSchema)) {
-            foreach ( $this->_dataSchema as $key => $value) {
-                $this->config[$key] = $value;
+       
+        try {
+            if (isset($this->_dataSchema[$propertyName])) {
+                return $this->_dataSchema[$propertyName];
+            } else {
+                throw new ComposerException("NE Propiedad '{$propertyName}' en SCHEMA ");
             }
 
-        } else {
-            throw new \UnexpectedValueException("SCHEMA Vacio");
+        } catch (ComposerException $e) {  
+            echo $e->jsonError();  
+            die();
         }
     }
     
+    /**
+     * Method loadConfig Mueve las propiedas del SCHEMA composer.json
+     *                   a $config complementando la clase composer
+     *                   con los atributos/propiedades del SCHEMA
+     *
+     * @return void
+     */
+    public function loadConfig(JsonDecoderInterface $jsonDecoder)
+    {
+        $this->_dataSchema = $jsonDecoder->loadSchema($this->file);
+      
+        // $this->loadConfig();
+
+        try {
+            if (!empty($this->_dataSchema)) {
+                foreach ( $this->_dataSchema as $key => $value) {
+                    $this->config[$key] = $value;
+                }
+
+            } else {
+                throw new ComposerException(" SCHEMA Vacio :".$this->file);
+            }
+        } catch (ComposerException $e) {  
+            echo $e->jsonError();
+            die();
+        }
+    }
+    
+    /**
+     * Method hasAttribute  Verifica si Atributo/propiedad existe 
+     *                      en el composer->config Ej : name/version/require
+     *
+     * @param $attrName Nombre del Atributo/propiedad 
+     *
+     * @return void
+     */
+    public function hasAttribute($attrName):bool
+    {
+        return isset($this->config[$attrName]);
+    }
+
+    /**
+     * Method getAttribute
+     *
+     * @param $attrName $attrName [explicite description]
+     *
+     * @return void
+     */
+    public function getAttribute($attrName)
+    {
+        if (! $this->hasAttribute($attrName)) {
+            throw new \InvalidArgumentException(sprintf('The attribute "%s" does not exist.', $key));
+        }
+
+        return $this->config[$attrName];
+    }
+
+    /**
+     * Method getAttrArray Extrae del SCHEMA una propiedad de tipo array
+     *                      Ej : require, repositories 
+     * 
+     * @param string $attrName Nombre de la propiedad o atributo del SCHEMA
+     *
+     * @return array
+     */
     public function getAttrArray(string $attrName): array
     {
 
@@ -144,29 +201,4 @@ class ComposerReader
     } // End method getTreePkgSchema
 
 }
-
-$file = $argv[1];//'../../Proyecto1/composer.json';
-//$file = '../../../libreria1/composer.json';
-
-$masterRepository = 'fabiosan75'; // Vendor Name directorio que contiene el repositorio
-
-//$composerMeta = array();
-
-$reader = new FileReader($file);
-
-$decoder = new JsonDecoder($file, $reader);
-
-$composerReader = new ComposerReader($decoder);
-
-$dependency = $composerReader->getAttrArray('require');
-$dependency = $composerReader->getAttrArray('repositories');
-
-var_dump($dependency);
-
-$masterRepository = 'fabiosan75';
-$treePkgArray = $composerReader->getTreePkgSchema($masterRepository);
-
-print_r($treePkgArray);
-
-
 ?>

@@ -7,7 +7,6 @@ namespace GetTreeRepository\Interfaces;
  */
 interface JsonDecoderInterface
 {
-    
     /**
      * Method getSchema
      *
@@ -18,9 +17,11 @@ interface JsonDecoderInterface
     /**
      * Method loadSchema
      *
-     * @return void
+     * @param string $file Ruta al archivo .json
+     *
+     * @return array
      */
-    public function loadSchema(): array;
+    public function loadSchema(string $file): array;
     
     /**
      * Method validateJsonFormat
@@ -30,14 +31,10 @@ interface JsonDecoderInterface
     public function validateJsonFormat(): bool;
     
     /**
-     * Method decodeSchema
+     * Method getFilePath
      *
-     * @return void
+     * @return string
      */
-   // public function decodeSchema();
-
-   // public function getPropertySchema(string $propertyName);
-
-
+    public function getFilePath(): string;
     
 }

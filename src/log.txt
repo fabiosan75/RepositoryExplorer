@@ -1,0 +1,11 @@
+08-03-2022 21:11:06: Error en la línea 70  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:12:16: Error en la línea 70  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:13:04: Error en la línea 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:13:52: json Error 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:27:27: json Error 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:32:51: json Error 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:34:44: json Error 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:41:11: json Error 70 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:57:08: json Error 69 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:57:15: json Error 69 NE Propiedad requiress en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+08-03-2022 21:57:24: json Error 69 NE Propiedad requires en SCHEMA /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php

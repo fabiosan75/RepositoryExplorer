@@ -25,9 +25,9 @@ class FileReader implements FileReaderInterface
      *
      * @return void
      */
-    public function __construct(string $filename)
+    public function __construct(string $fileName)
     {
-            $this->_fileName = $filename;       
+            $this->_fileName = $fileName;       
     }
          
     /**
@@ -62,12 +62,25 @@ class FileReader implements FileReaderInterface
      */
     public function readFile():string 
     {
-        if (!$this->canReadFile($this->_fileName)) {
-            throw new \RuntimeException("Error Lectura Archivo :". $this->_fileName);
-        } else {
-            return file_get_contents($this->_fileName);
-        }
+     //   if (!$this->canReadFile($this->_fileName)) {
+     //       throw new \RuntimeException("Error Lectura Archivo :". $this->_fileName);
+     //   } else {
+     //       return file_get_contents($this->_fileName);
+     //   }
     
+
+        try {
+            if ($this->canReadFile($this->_fileName)) {
+                return file_get_contents($this->_fileName);
+            } else {
+                throw new ComposerException("Error Lectura Archivo :". $this->_fileName);
+            }
+
+        } catch (ComposerException $e) {  
+            echo $e->jsonError();
+            die("FileReader ERROR".PHP_EOL); 
+        }
+
     }
     
 }

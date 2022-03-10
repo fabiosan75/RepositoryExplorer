@@ -4,18 +4,20 @@ namespace GetTreeRepository;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use GetTreeRepository\FileReader;
 use GetTreeRepository\ComposerReader;
+use GetTreeRepository\PackageNode;
 
 class PackageExplorer
 {
     protected $package;
 
-  //  public function __construct($property)
-  //  {
-  //      $this->property = $property;
-  //  }
+  /*  public $composerReaderI;
 
+    public function __construct(ComposerReaderInterface $composerReader)
+    {
+        $this->composerReaderI = $composerReader;
+    }
+*/
 
 }
 
@@ -34,17 +36,22 @@ $composerReader = new ComposerReader($decoder);
 
 $composerReader = new ComposerReader($file);
 
+$packageNode = new PackageNode($composerReader);
+
+$packageNode->setProperties();
+
 $composerReader->getPropertySchema('require');
 
 $dependency = $composerReader->getAttrArray('require');
 $repositories = $composerReader->getAttrArray('repositories');
 
-var_dump($dependency);
-var_dump($repositories);
+print_r($packageNode);
+//var_dump($dependency);
+//var_dump($repositories);
 
 $masterRepository = 'fabiosan75';
 
-$treePkgArray = $composerReader->getTreePkgSchema($masterRepository);
+//$treePkgArray = $composerReader->getTreePkgSchema($masterRepository);
 
-print_r($treePkgArray);
+//print_r($treePkgArray);
 

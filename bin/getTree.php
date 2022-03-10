@@ -2,7 +2,7 @@
 //#!/usr/local/bin/php
 
 $ignoreArray = array(
-    '.', '..', '.git', 'composer',
+    '.', '..', '.git', 'composer','composer.lock',
     'vendor', 'src', 'README.md', '.gitignore', 'bin'
 );
 
@@ -44,7 +44,7 @@ function listdir($dir, $pattern):array
 
 $listFiles = graphicTree($path, 10, $ignoreArray);
 
-var_dump($listFiles);
+print_r($listFiles);
 exit;
 $files = listdir($path, '/(composer.json)/');
 print_r($files);
@@ -176,7 +176,7 @@ function graphicTree($basePath, int $root, $ignoreArray): array
                 printf("%s%s%s\n", '├', '──', $fileName);
 
                 $path = $basePath . '/' . $fileName; // strcpy($path, $basePath);
-            // $fileList[] = $path;
+             $fileList[] = $path;
             //  graphicTree($path, $root + 5, $ignoreArray);
                 $fileList = array_merge($fileList, graphicTree($path, $root + 5, $ignoreArray));
 

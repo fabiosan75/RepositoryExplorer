@@ -18,8 +18,8 @@ class ComposerException extends \Exception
     {
         
         $errorMsg = 'json Error '
-                .$this->getLine()." ".$this->getMessage()." "
-                .$this->getFile().PHP_EOL;
+                .$this->getMessage()." in "
+                .basename($this->getFile()).':'.$this->getLine().PHP_EOL;
 
         Logger::msgLogger($errorMsg);  
 

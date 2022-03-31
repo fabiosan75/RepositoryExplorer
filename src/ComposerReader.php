@@ -17,11 +17,8 @@ use GetTreeRepository\Interfaces\FileReaderInterface;
 use GetTreeRepository\Interfaces\JsonDecoderInterface;
 
 /**
- * Template Class Doc Comment
- *
- * ComposerReader Class
- * ComposerReader : Implementa los metodos necesarios para leer elementos de
- * archivos composer.json y obtener propiedades de su SCHEMA 
+ * Class ComposerReader Implementa los metodos necesarios para leer elementos de
+ *                      archivos composer.json y obtener propiedades de su SCHEMA 
  *
  * @category Class
  * @package  GetTreeRepository

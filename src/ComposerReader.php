@@ -1,15 +1,5 @@
 <?php
-
-namespace GetTreeRepository;
-
-use GetTreeRepository\ComposerException;
-use GetTreeRepository\Interfaces\ComposerReaderInterface;
-//use GetTreeRepository\Interfaces\FileReaderInterface;
-use GetTreeRepository\Interfaces\JsonDecoderInterface;
-
 /**
- * Template File Doc Comment
- *
  * PHP version 7
  *
  * @category Class
@@ -18,6 +8,13 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
+
+namespace GetTreeRepository;
+
+use GetTreeRepository\Util\ComposerException;
+use GetTreeRepository\Interfaces\ComposerReaderInterface;
+use GetTreeRepository\Interfaces\FileReaderInterface;
+use GetTreeRepository\Interfaces\JsonDecoderInterface;
 
 /**
  * Template Class Doc Comment
@@ -32,30 +29,71 @@ use GetTreeRepository\Interfaces\JsonDecoderInterface;
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
+
 class ComposerReader implements ComposerReaderInterface
 {
 
-    private iterable $_dataSchema = [];
+    private $_dataSchema = [];
     public $jsonDecoder;
 
     public $config = [];
    
+     
     /**
      * Method __construct
      *
-     * @param $file Ruta al archivo [path/composer.json] a procesar
+     * @param FileReaderInterface $reader 
      *
      * @return void
      */
-    public function __construct(string $file)
+    public function __construct(FileReaderInterface $reader)
     { 
-        $this->file = $file;
-        $reader = new FileReader($file);
         $jsonDecoder = new JsonDecoder($reader);
-      //  $this->_dataSchema = $jsonDecoder->loadSchema($this->file);
         $this->loadConfig($jsonDecoder);
     }
  
+     
+    /**
+     * Method loadConfig Mueve las propiedas del SCHEMA composer.json
+     *                   a $config complementando la clase composer
+     *                   con los atributos/propiedades del SCHEMA
+     *
+     * @param JsonDecoderInterface $jsonDecoder 
+     * 
+     * @return void
+     */
+    public function loadConfig(JsonDecoderInterface $jsonDecoder)
+    {
+        $this->_dataSchema = $jsonDecoder->loadSchema();
+      
+        try {
+            if (!empty($this->_dataSchema)) {
+                foreach ( $this->_dataSchema as $key => $value) {
+                    $this->config[$key] = $value;
+                }
+
+            } else {
+                throw new ComposerException(
+                    " SCHEMA Vacio :"
+                    .$jsonDecoder->fileReader->getFileName()
+                );
+            }
+        } catch (ComposerException $e) {  
+            echo $e->jsonError();
+            die();
+        }
+    }
+    
+    /**
+     * Method getSchema Retorna el array con el SCHEMA completo del composer.json
+     *
+     * @return array
+     */
+    public  function getSchema(): array 
+    {
+        return $this->_dataSchema;
+    }
+
     /**
      * Method getPropertySchema
      *
@@ -71,39 +109,13 @@ class ComposerReader implements ComposerReaderInterface
             if (isset($this->_dataSchema[$propertyName])) {
                 return $this->_dataSchema[$propertyName];
             } else {
-                throw new ComposerException("NE Propiedad '{$propertyName}' en SCHEMA ");
+                throw new ComposerException(
+                    "NE Propiedad '{$propertyName}' en SCHEMA "
+                );
             }
 
         } catch (ComposerException $e) {  
             echo $e->jsonError();  
-            die();
-        }
-    }
-    
-    /**
-     * Method loadConfig Mueve las propiedas del SCHEMA composer.json
-     *                   a $config complementando la clase composer
-     *                   con los atributos/propiedades del SCHEMA
-     *
-     * @return void
-     */
-    public function loadConfig(JsonDecoderInterface $jsonDecoder)
-    {
-        $this->_dataSchema = $jsonDecoder->loadSchema($this->file);
-      
-        // $this->loadConfig();
-
-        try {
-            if (!empty($this->_dataSchema)) {
-                foreach ( $this->_dataSchema as $key => $value) {
-                    $this->config[$key] = $value;
-                }
-
-            } else {
-                throw new ComposerException(" SCHEMA Vacio :".$this->file);
-            }
-        } catch (ComposerException $e) {  
-            echo $e->jsonError();
             die();
         }
     }
@@ -122,19 +134,27 @@ class ComposerReader implements ComposerReaderInterface
     }
 
     /**
-     * Method getAttribute
+     * Method getAttribute Devuelve un atributo del SCHEMA 
      *
-     * @param $attrName $attrName [explicite description]
+     * @param $attrName Nombre del Atributo/propiedad del SCHEMA
      *
-     * @return void
+     * @return string
      */
-    public function getAttribute($attrName)
+    public function getAttribute($attrName):string
     {
-        if (! $this->hasAttribute($attrName)) {
-            throw new \InvalidArgumentException(sprintf('The attribute "%s" does not exist.', $key));
+
+        try {
+            if ($this->hasAttribute($attrName)) {
+                return $this->config[$attrName];
+            } else {
+                throw new ComposerException("NE Propiedad '{$attrName}' en SCHEMA ");
+            }
+
+        } catch (ComposerException $e) {  
+            echo $e->jsonError();  
+            die();
         }
 
-        return $this->config[$attrName];
     }
 
     /**
@@ -147,59 +167,34 @@ class ComposerReader implements ComposerReaderInterface
      */
     public function getAttrArray(string $attrName): array
     {
-
+        $attrValue = [];
         if (array_key_exists($attrName, $this->config) 
             && is_array($this->config["$attrName"])
             && count($this->config["$attrName"])
         ) {
 
-            return $this->config["$attrName"]; 
+            $attrValue = $this->config["$attrName"]; 
         }
 
-        return [];
+        return $attrValue;
 
     }
 
-    public function checkPkgName(string $pkgName): bool
-    {
+    /*  
+        public function checkPkgName(string $pkgName): bool
+        {
 
-        if (empty($pkgName)) {
-            return false;
-        }
-        $pkgNameString = $this->getPropertySchema('name');
+            if (empty($pkgName)) {
+                return false;
+            }
+            $pkgNameString = $this->getPropertySchema('name');
 
-        if (empty($pkgNameString) || ($pkgNameString != $pkgName)) {
-            return false;
-        }
-    }
-/*
-    public function getTreePkgSchema(string $masterRepository)
-    {
-        $treeRepositoryArray = array();
-
-        $requireArray = $this->getPropertySchema('require');
-
-        $pkgNameString = $this->getPropertySchema('name');
-
-        $pkgTypeString = $this->getPropertySchema('type');
-
-        if (count($requireArray) != 0) {
-
-            foreach ($requireArray as $pkgNameString => $pkgVersionString) {
-
-                list($vendorNameString,$projectNameString) = array_pad(explode('/', $pkgNameString), 2, null);
-            
-                if ($masterRepository === $vendorNameString) {
-                    $treeRepositoryArray[$projectNameString] = array(
-                        "type" => $pkgTypeString,
-                        "name" => $vendorNameString,
-                        "version" => $pkgVersionString);
-                }
+            if (empty($pkgNameString) || ($pkgNameString != $pkgName)) {
+                return false;
             }
         }
-        return $treeRepositoryArray;
+    
 
-    } // End method getTreePkgSchema
-*/
+    */
 }
 ?>

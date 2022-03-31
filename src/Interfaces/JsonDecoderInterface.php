@@ -1,6 +1,6 @@
 <?php
 /**
- * ComposerReaderInterface
+ * JsonDecoderInterface
  *
  * PHP version 7
  *
@@ -14,7 +14,7 @@
 namespace GetTreeRepository\Interfaces;
 
 /**
- * Class JsonDecoder : Implementa los metodos para el acceso al FileSystem
+ * Class JsonDecoderInterface : Implementa los metodos para el acceso al FileSystem
  * 
  * @category Class
  * @package  GetTreeRepository
@@ -22,6 +22,7 @@ namespace GetTreeRepository\Interfaces;
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
+
 interface JsonDecoderInterface
 {
 

@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * PHP version 7
+ *
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
+ */
 namespace GetTreeRepository;
 
 use GetTreeRepository\Interfaces\JsonReaderInterface;
@@ -17,30 +25,33 @@ use GetTreeRepository\Interfaces\FileReaderInterface;
 
 class JsonReader implements JsonReaderInterface
 {
-    /**
-     * @var string
-     */
     
-    private $_filename;
-
-    private $fileReader;
+    private $_filePath;
+    public static $fileReader;
     
     /**
      * Method __construct
      *
-     * @param ( $schema [explicite description]
+     * @param FileReaderInterface $fileReader Clase para acceso al fileSystem
+     * @param string              $filePath   src/Path archivo con json SCHEMA
      *
      * @return void
      */
-
     public function __construct(FileReaderInterface $fileReader,string $filePath )
     {
         $this->fileReader = $fileReader;
         $this->_filePath = $filePath;
 
     }
-
-    public function getContent(string $filename): string
+    
+    /**
+     * Method getContent Retorna el contenido del archivo instanciado en $fileReader
+     *
+     * @param string $fileName Path/source al archivo json
+     *
+     * @return string
+     */
+    public function getContent(string $fileName): string
     {
         return $this->fileReader->readfile($this->_filePath);
     }

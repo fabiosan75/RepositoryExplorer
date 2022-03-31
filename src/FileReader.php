@@ -1,11 +1,21 @@
 <?php
-
+/**
+ * PHP version 7
+ *
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
+ */
 namespace GetTreeRepository;
 
 use GetTreeRepository\Interfaces\FileReaderInterface;
+use GetTreeRepository\Util\FileSystemException;
 
 /**
  * FileReader : Implementa los metodos para el acceso al FileSystem
+ *              Lectura y validación de archivo.
  * 
  * @category Class
  * @package  GetTreeRepository
@@ -21,7 +31,7 @@ class FileReader implements FileReaderInterface
     /**
      * Method __construct
      *
-     * @param string $filename FilePath
+     * @param string $fileName src/Path al archivo
      *
      * @return void
      */
@@ -62,25 +72,20 @@ class FileReader implements FileReaderInterface
      */
     public function readFile():string 
     {
-     //   if (!$this->canReadFile($this->_fileName)) {
-     //       throw new \RuntimeException("Error Lectura Archivo :". $this->_fileName);
-     //   } else {
-     //       return file_get_contents($this->_fileName);
-     //   }
-    
-
         try {
             if ($this->canReadFile($this->_fileName)) {
                 return file_get_contents($this->_fileName);
             } else {
-                throw new ComposerException("Error Lectura Archivo :". $this->_fileName);
+                throw new FileSystemException(
+                    "Error Lectura Archivo :". $this->_fileName
+                );
             }
 
-        } catch (ComposerException $e) {  
-            echo $e->jsonError();
+        } catch (FileSystemException $e) {  
+            echo $e->fsError();
             die("FileReader ERROR".PHP_EOL); 
         }
-
+        
     }
     
 }

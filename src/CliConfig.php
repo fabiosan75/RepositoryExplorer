@@ -1,15 +1,5 @@
 <?php
-
-namespace GetTreeRepository;
-
-require_once __DIR__.'/../vendor/autoload.php';
-
-use GetTreeRepository\Util\CliException;
-use GetTreeRepository\Util\CliMsg;
-
 /**
- * Template File Doc Comment
- *
  * PHP version 7
  *
  * @category Class
@@ -17,8 +7,14 @@ use GetTreeRepository\Util\CliMsg;
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
- *
  */
+
+namespace GetTreeRepository;
+
+require_once __DIR__.'/../vendor/autoload.php';
+
+use GetTreeRepository\Util\CliException;
+use GetTreeRepository\Util\CliMsg;
 
 /**
  * Template Class Doc Comment
@@ -33,9 +29,7 @@ use GetTreeRepository\Util\CliMsg;
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
- *
  */
-
 
 class CliConfig
 {
@@ -103,7 +97,8 @@ DESCRIPTION
        Collection headers will display the key as label.
        Branch ends will display key/value pairs.
 
-       When adding the --valueonly option to the commandline, a treeiew with only element values
+       When adding the --valueonly option to the commandline, a treeiew 
+       with only element values
        will be generated (no key labels). Collection headers will be labeled ARRAY.
 
        The -h option will display this help text.
@@ -143,13 +138,15 @@ MAN;
         'l' => array('Muestra contenido del log del comando.', 
                       'long' => 'log'),
         'v' => array('Ver version', 
-                      'long' => 'version')
-        
+                      'long' => 'version')   
     );
     
 
+    
     /**
-     * Configure the CLI for usage.
+     * Method configureCli
+     *
+     * @return void
      */
     public function configureCli(): void
     {
@@ -159,22 +156,20 @@ MAN;
 
         $shortOptionsList = array_keys(self::$optionDefs);
         self::$options = $this->parseOptions($_SERVER['argv'], $shortOptionsList);
-    //  self::$options = $this->parseOptionsOK();
+        //  self::$options = $this->parseOptionsOK();
 
-      //  $parser = new Parser();
-      //  self::$options = $parser->parse($_SERVER['argv']);
+        //  $parser = new Parser();
+        //  self::$options = $parser->parse($_SERVER['argv']);
 
     }
 
     /**
-     * parseOptions Valida los argumentos de la linea de comando y 
-     *              retorna un array con las opciones.
+     * Method parseOptions Valida los argumentos de la linea de comando y 
+     *                     retorna un array con las opciones.
      *
-     * @access public
-     * @static
-     * @param array $args array con los argumentos de la linea de comandos.
+     * @param array $args    array con los argumentos de la linea de comandos.
      * @param array $allowed Array con las opciones disponibles.
-     * @throws CliException Lanza excepcion si la opcion no existe.
+     *
      * @return array retorna un array con las opciones y parametros.
      *
      * @example

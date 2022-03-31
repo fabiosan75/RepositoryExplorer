@@ -175,3 +175,219 @@
 
 09-03-2022 23:15:08: json Error 73 NE Propiedad 'require' en SCHEMA  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
 
+11-03-2022 20:16:48: json Error 76 Error Lectura Archivo :../Proyecto1/ /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+15-03-2022 20:30:08: json Error 76 Error Lectura Archivo :../ /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+15-03-2022 20:32:01: json Error 76 Error Lectura Archivo :../ /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/FileReader.php
+
+15-03-2022 22:47:07: json Error 58 Formato Json Invalido  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+15-03-2022 22:47:07: json Error 102  SCHEMA Vacio :..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+15-03-2022 22:47:45: json Error 58 Formato Json Invalido  /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+15-03-2022 22:47:45: json Error 102  SCHEMA Vacio :..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+15-03-2022 22:48:39: json Error 58 Formato Json Invalido ..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+15-03-2022 22:48:39: json Error 102  SCHEMA Vacio :..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+15-03-2022 23:05:21: json Error 58 Formato Json Invalido ..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/JsonDecoder.php
+
+15-03-2022 23:05:21: json Error 102  SCHEMA Vacio :..//Proyecto1/composer.json /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/ComposerReader.php
+
+17-03-2022 21:20:13: CLI Error 75  APP implementada 
+                        especificamente para Sistemas UIX /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+17-03-2022 21:20:20: CLI Error 75  APP implementada 
+                        especificamente para Sistemas UIX /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+17-03-2022 21:20:23: CLI Error 75  APP implementada 
+                        especificamente para Sistemas UIX /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+17-03-2022 21:20:54: CLI Error 75  APP implementada para Sistemas UIX /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+17-03-2022 21:24:17: CLI Error 75  APP implementada para Sistemas UIX /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:30:19: CLI Error 316 Unrecognized option j /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:30:20: CLI Error 268 Unrecognized option pa /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:30:21: CLI Error 316 Unrecognized option x /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:36:03: CLI Error 316 Opcion Desconocida j /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:36:03: CLI Error 268 Unrecognized option pa /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:36:03: CLI Error 316 Opcion Desconocida x /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:38:40: CLI Error 321 Opcion Desconocida j /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:38:40: CLI Error 273 Unrecognized option pa /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:38:40: CLI Error 321 Opcion Desconocida x /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:42:20: CLI Error 319 Unrecognized option v /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:43:11: CLI Error 320 Unrecognized option j /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:43:11: CLI Error 272 Unrecognized option pa /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:43:11: CLI Error 320 Unrecognized option x /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:43:14: CLI Error 320 Unrecognized option v /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:43:40: CLI Error 320 Unrecognized option v /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:45:04: CLI Error 320 Unrecognized option v /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:46:23: CLI Error 320 Unrecognized option v /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/GetTreeRepository/src/CliApp.php
+
+29-03-2022 16:53:48: CLI Error 320 Unrecognized option v CliApp.php
+
+29-03-2022 16:53:48: CLI Error 320 Unrecognized option a CliApp.php
+
+29-03-2022 16:54:48: CLI Error  Unrecognized option v CliApp.php:320
+
+29-03-2022 16:54:48: CLI Error  Unrecognized option a CliApp.php:320
+
+29-03-2022 16:55:04: CLI Error  Unrecognized option v in CliApp.php:320
+
+29-03-2022 16:55:04: CLI Error  Unrecognized option a in CliApp.php:320
+
+29-03-2022 17:01:55: CLI Error  Unrecognized option v in CliApp.php:320
+
+29-03-2022 17:01:55: CLI Error  Unrecognized option a in CliApp.php:320
+
+29-03-2022 17:04:41: CLI Error  Unrecognized option a in CliApp.php:321
+
+29-03-2022 17:05:53: CLI Error  Unrecognized option a in CliApp.php:321
+
+29-03-2022 17:06:44: CLI Error  Unrecognized option j in CliApp.php:321
+
+29-03-2022 17:10:25: CLI Error  Unrecognized option j in CliApp.php:323
+
+29-03-2022 17:10:25: CLI Error  Invalid Format ../ in CliApp.php:332
+
+29-03-2022 17:26:52: CLI Error  Unrecognized option j in CliApp.php:322
+
+29-03-2022 17:26:52: CLI Error  Invalid Format ../dsd in CliApp.php:331
+
+29-03-2022 17:40:44: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 17:41:08: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 17:41:12: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 17:41:32: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 17:41:56: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 17:41:59: FileSystem Error Direcotorio ../dsd No Valido in DirectoryReader.php:37
+
+29-03-2022 20:04:55: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:04:55: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:05:23: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:05:23: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:08: CLI Error  Invalid Format xa in CliApp.php:340
+
+29-03-2022 20:06:08: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:13: CLI Error  Invalid Format x in CliApp.php:340
+
+29-03-2022 20:06:13: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:15: CLI Error  Unrecognized option x in CliApp.php:330
+
+29-03-2022 20:06:15: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:19: CLI Error  Unrecognized option x in CliApp.php:308
+
+29-03-2022 20:06:19: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:06:19: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:21: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:06:21: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:06:36: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:06:36: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:07:40: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:07:40: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:07:45: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:07:45: CLI Error  Invalid Format ../ in CliApp.php:340
+
+29-03-2022 20:08:34: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:08:34: CLI Error  Invalid Format ../ in CliApp.php:339
+
+29-03-2022 20:08:45: CLI Error  Unrecognized option a in CliApp.php:330
+
+29-03-2022 20:08:45: CLI Error  Invalid Format ../ in CliApp.php:339
+
+29-03-2022 20:19:08: CLI Error  Unrecognized option h in CliApp.php:330
+
+29-03-2022 21:21:16: FileSystem Error Directorio ../ No Valido in DirectoryReader.php:37
+29-03-2022 21:21:51: FileSystem Error Directorio ../ No Valido in DirectoryReader.php:37
+29-03-2022 21:36:09: FileSystem Error Directorio ../ No Valido in DirectoryReader.php:37
+29-03-2022 21:38:03: FileSystem Error Directorio ../ No Valido in DirectoryReader.php:37
+30-03-2022 14:02:01: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:04:22: CLI Error  Unrecognized option d in CliApp.php:327
+30-03-2022 14:04:22: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:06:40: CLI Error  Unrecognized option eds in CliApp.php:314
+30-03-2022 14:08:28: CLI Error  Unrecognized option eds in CliApp.php:314
+30-03-2022 14:08:28: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:08:28: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:09:31: CLI Error  Unrecognized option eds in CliApp.php:314
+30-03-2022 14:09:31: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:09:31: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:10:11: CLI Error  Unrecognized option eds in CliApp.php:314
+30-03-2022 14:10:11: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:10:11: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:10:27: CLI Error  Unrecognized 2 option eds in CliApp.php:314
+30-03-2022 14:10:27: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:10:27: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:11:11: CLI Error  Unrecognized 2 option eds in CliApp.php:314
+30-03-2022 14:11:11: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:11:11: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:11:28: CLI Error  Unrecognized 2 option eds in CliApp.php:314
+30-03-2022 14:11:28: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:11:28: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 14:11:55: CLI Error  Unrecognized 2 option eds in CliApp.php:314
+30-03-2022 14:11:55: CLI Error  Invalid Format ../ in CliApp.php:366
+30-03-2022 14:11:55: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 15:48:19: CLI Error  Opcion Desconocida eds in CliApp.php:317
+30-03-2022 15:48:19: CLI Error  Formato Invalido ../ in CliApp.php:369
+30-03-2022 15:48:19: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 15:48:25: CLI Error  Formato Invalido ../ in CliApp.php:369
+30-03-2022 15:48:25: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 15:48:32: CLI Error  Formato Invalido ../ in CliApp.php:369
+30-03-2022 15:48:32: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:37
+30-03-2022 15:50:24: FileSystem Error Directorio /Library/WebServer/Documents/TestAmpliffy/Repositorios_Amplif No Valido in DirectoryReader.php:37
+30-03-2022 15:56:34: CLI Error  Ingrese una opción valida, por favor valide la audia [-h --help] in CliApp.php:203
+30-03-2022 15:56:44: CLI Error  Ingrese una opción valida, por favor valide la ayuda [-h --help] in CliApp.php:203
+30-03-2022 15:59:25: CLI Error  Ingrese una opción valida, por favor valide la ayuda [-u --usage -h --help] in CliApp.php:204
+30-03-2022 22:31:25: CLI Error  Opcion Desconocida m in CliApp.php:378
+30-03-2022 22:32:07: CLI Error  Opcion Desconocida m in CliApp.php:378
+30-03-2022 22:32:07: CLI Error  Ingrese una opción valida, por favor valide la ayuda [-u --usage -h --help] in CliApp.php:199
+30-03-2022 22:32:32: CLI Error  Opcion Desconocida m in CliApp.php:378
+30-03-2022 22:32:32: CLI Error  Ingrese una opción valida, por favor valide la ayuda [-u --usage -h --help] in CliApp.php:199
+30-03-2022 22:32:48: CLI Error  Opcion Desconocida m in CliApp.php:378
+30-03-2022 22:32:48: CLI Error  Ingrese una opción valida, por favor valide la ayuda [-u --usage -h --help] in CliApp.php:199
+30-03-2022 23:04:56: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:36
+30-03-2022 23:06:14: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:36
+30-03-2022 23:19:55: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:36
+30-03-2022 23:43:52: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:36
+31-03-2022 20:53:34: CLI Error  Opcion Desconocida g in CliConfig.php:254
+31-03-2022 20:53:34: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:73

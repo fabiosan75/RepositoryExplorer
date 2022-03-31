@@ -20,7 +20,7 @@ use GetTreeRepository\PackageExplorer;
 use GetTreeRepository\Util\CliMsg;
 
 /**
- * CLIClass Class 
+ * CliApp Class 
  *            Implementa los metodos necesarios para el uso de la linea de comandos
  *            crea los parametros de linea de comando, valida opciones, genera los 
  *            mensajes por STDOUT según las opciones de entrada y parametros 
@@ -37,8 +37,10 @@ class CliApp extends CliConfig
 {
   
     /**
-     * Method __construct
-     *
+     * Method __construct Instancia de CLI valida S.O. configura la clase Cli
+     *                    con sus opciones, valida opciones de entrada $argv, 
+     *                    textos de ayuda, guia de usuario
+     *                    
      * @return void
      */
     function __construct()
@@ -57,7 +59,9 @@ class CliApp extends CliConfig
     }
     
     /**
-     * Method run
+     * Method run Excuta CLI segun las opciones recibidas por $argv, instancia 
+     *            los metodos necesarios para producot STD OUT en cada opcion
+     *            recibida, proceso y genera IO
      *
      * @return void
      */
@@ -126,7 +130,7 @@ class CliApp extends CliConfig
                         echo CliMsg::colorText(
                             $repoSchema, CliMsg::BLUE_TXTCOD
                         );
-                        
+
                         echo PHP_EOL; 
                     }
                     

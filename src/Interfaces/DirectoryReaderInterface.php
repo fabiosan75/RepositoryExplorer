@@ -27,10 +27,9 @@ interface DirectoryReaderInterface
 {
        
     /**
-     * Method listDirectory Retorna los direcotrios de un repositorio 
+     * Method listDir Retorna los directorios de un repositorio 
      *                      <$dirpath> que contienen un archivo especificado 
-     *                      en $pattern
-     * EJ : composer.json  >>  
+     *                      en $pattern EJ : composer.json
      *
      * @param string $pattern Patrón para filtrar los directorios listados
      *                        EJ : </(composer.json)/>

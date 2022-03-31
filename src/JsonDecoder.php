@@ -1,7 +1,5 @@
 <?php
-/**
- * Class JsonDecoder : Implementa los metodos obtener la data del json file
- * 
+/** 
  * PHP version 7
  * 
  * @category Class
@@ -15,10 +13,18 @@ namespace GetTreeRepository;
 
 use GetTreeRepository\Interfaces\FileReaderInterface;
 use GetTreeRepository\Interfaces\JsonDecoderInterface;
+use GetTreeRepository\Util\ComposerException;
 
 /**
- * JsonDecoder
+ * Class JsonDecoder : Implementa los metodos para el acceso al FileSystem
+ * 
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
  */
+
 class JsonDecoder implements JsonDecoderInterface
 {
 
@@ -39,23 +45,26 @@ class JsonDecoder implements JsonDecoderInterface
     }
  
     /**
-     * Method getContent Lee el contenido del archivo $_filepath 
-     *
-     * @param $file Instancia FileReaderInterface para acceso al .json
+     * Method loadSchema Lee el contenido del archivo instanciado en $fileReader
+     *                   valida que sea un json bien "formado" y retorna un array
+     *                   con el SCHEMA
      * 
      * @return array
      */
-    public function loadSchema(string $file): array
+    public function loadSchema(): array
     {
         $dataSchema = [];
 
-        $this->_jsonSchema = $this->fileReader->readfile($file);
+        $this->_jsonSchema = $this->fileReader->readfile();
 
         try {
             if ($this->validateJsonFormat()) {
                 $dataSchema = json_decode($this->_jsonSchema, true);
             } else {
-                throw new ComposerException("Formato Json Invalido ".$file);
+                throw new ComposerException(
+                    "Formato Json Invalido "
+                    .$this->fileReader->getFileName()
+                );
             } 
 
         }
@@ -92,16 +101,6 @@ class JsonDecoder implements JsonDecoderInterface
         }
         
         return false;
-    }
-    
-    /**
-     * Method getFilePath
-     *
-     * @return string
-     */
-    public function getFilePath(): string
-    {
-        return $this->fileReader->getFileName();
     }
 
 }

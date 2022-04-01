@@ -1,6 +1,6 @@
 <?php
 /**
- * ComposerReaderInterface
+ * FileReaderInterface
  *
  * PHP version 7
  *

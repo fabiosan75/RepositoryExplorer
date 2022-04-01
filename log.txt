@@ -391,3 +391,4 @@
 30-03-2022 23:43:52: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:36
 31-03-2022 20:53:34: CLI Error  Opcion Desconocida g in CliConfig.php:254
 31-03-2022 20:53:34: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:73
+31-03-2022 21:35:32: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43

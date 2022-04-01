@@ -34,20 +34,16 @@ use GetTreeRepository\Util\CliMsg;
 class CliConfig
 {
 
-/**
- * * @var bool formatear mensajes de salida STDOUT
- *
- */
-    //protected $formatText;
+
     const APP_NAME = 'PipeValidator';
     const VALID_OS = array('LINUX', 'DARWI'); // max long char(5)
 
-    private $version = '1.0.0';  
+    private $_version = '1.0.0';  
 
-    private $versiondate = '17-03-2022';
-    private $appname = 'Pipe Composer Repository Explorer';
+    private $_versiondate = '17-03-2022';
+    private $_appname = 'Pipe Composer Repository Explorer';
 
-    private static $logo = "
+    private static $_logo = "
     ___                  _ _  __  __        ______ _            
     / _ \                | (_)/ _|/ _|       | ___ (_)           
    / /_\ \_ __ ___  _ __ | |_| |_| |_ _   _  | |_/ /_ _ __   ___ 
@@ -77,33 +73,29 @@ DESCRIPTION
        la secuencia de commits de un pipe en un modelo de CI/CD, permite ver los 
        paquetes por los que esta compuesto un proyecto. 
 
-       Options -f and -u, followed by either a path/filename or a web-address, 
-       will allow
-       the tool to go get the json-data to transform into a text-based treeview, as
-       displayed below :
+       Usabilidad : 
+        La opcion [-e src/Path] la aplicacion mostrara el SCHEMA de los paquetes 
+        encontrados en la ruta.
+      
+          /pathname/composer.json
+            |_name : fabiosan75/proyecto1
+            |_description : Estructura para  de proyecto 1 bajo modelo CI-CD
+            |_type : project
+            |_license : proprietary
+            |_repositories
+              |_0
+                  |_packagist.org :
+              |_1
+                  |_type : vcs
+                  |_url : https://github.com/fabiosan75/libreria1
+              |_2
+                 |_type : vcs
+                 |_url : https://github.com/fabiosan75/libreria2
+              |_3
 
-      /pathname/composer.json
-             |_firstelementkey
-                |_firstdatalinekey : 1234
-                |_seconddatalinekey : abcde
-                |_...
-             |_secondelementkey
-                |_firstdatalinekey : 5678
-                |_seconddatalinekey : fghij
-                |_...
-             |_...
+        La opcion [-s src/Path] la aplicacion mostrara los repositorios/paquetes 
+        encontrados.
 
-       The root tag of the treeview will refer to the origin of the json-data.
-       Collection headers will display the key as label.
-       Branch ends will display key/value pairs.
-
-       When adding the --valueonly option to the commandline, a treeiew 
-       with only element values
-       will be generated (no key labels). Collection headers will be labeled ARRAY.
-
-       The -h option will display this help text.
-
-       The -v option will display the tools software version number.
 MAN;
        static $MAN_DIAGNOSTICS = <<<MAN
 
@@ -125,8 +117,6 @@ MAN;
                       'long' => 'usage'),
         'h' => array('Muestra la información de uso, command <options>.', 
                       'long' => 'help'),
-        'p' => array('Ruta al directorio de proyecto', 
-                      'long' => 'project-source'),
         'r' => array('Ruta al repositorio', 
                       'long' => 'repository'),
         's' => array('Lista los archivos composer.json en el DIR del repositorio', 
@@ -150,9 +140,12 @@ MAN;
      */
     public function configureCli(): void
     {
-        self::$MAN_HEADER = "$this->appname (1)            Manual General del Comando            $this->appname (1)";
+        self::$MAN_HEADER = PHP_EOL.
+                            "$this->_appname                ".
+                            "Manual General del Comando        (1)";
 
-        self::$MAN_FOOTER = PHP_EOL."Version : $this->version                        $this->versiondate                       $this->appname (1)";
+        self::$MAN_FOOTER = PHP_EOL."Version : $this->_version                     ".
+                            "$this->_versiondate                 $this->appname (1)";
 
         $shortOptionsList = array_keys(self::$optionDefs);
         self::$options = $this->parseOptions($_SERVER['argv'], $shortOptionsList);
@@ -274,7 +267,7 @@ MAN;
         $strline = '';
 
         $strline = CliMsg::colorText(
-            self::$logo, 
+            self::$_logo, 
             CliMsg::PURPLE_TXTCOD
         );
 
@@ -315,9 +308,8 @@ MAN;
      */
     public static function usage(): string
     {
-        $strline = CliMsg::colorText(self::$logo, CliMsg::PURPLE_TXTCOD);
 
-        //$strline = ''; //+= $this->man.PHP_EOL;
+        $strline = '';
 
         $cmdname = isset($GLOBALS['argv'][0]) ? $GLOBALS['argv'][0] : self::APP_NAME;
 

@@ -46,9 +46,10 @@ interface ComposerReaderInterface
     public function loadConfig(JsonDecoderInterface $jsonDecoder);
     
     /**
-     * Method hasAttribute
+     * Method hasAttribute  Verifica si Atributo/propiedad existe 
+     *                      en el composer->config Ej : name/version/require
      *
-     * @param $attrName $attrName [explicite description]
+     * @param $attrName Nombre del Atributo/propiedad 
      *
      * @return bool
      */
@@ -59,9 +60,9 @@ interface ComposerReaderInterface
      *
      * @param $attrName $attrName [explicite description]
      *
-     * @return void
+     * @return string
      */
-    public function getAttribute($attrName);
+    public function getAttribute($attrName):string;
     
     /**
      * Method getAttrArray

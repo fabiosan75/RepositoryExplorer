@@ -17,10 +17,7 @@ use GetTreeRepository\Util\CliException;
 use GetTreeRepository\Util\CliMsg;
 
 /**
- * Template Class Doc Comment
- *
- * CLIClass Class
- * CLIClass : Implementa los metodos necesarios para el uso de la linea de comandos
+ * CLIClass Class Implementa los metodos necesarios para el uso de CLI
  *   crea los parametros de linea de comando, valida opciones, genera los mensajes
  *   por STDOUT según las opciones de entrada y parametros entregados al comando.
  *
@@ -33,7 +30,6 @@ use GetTreeRepository\Util\CliMsg;
 
 class CliConfig
 {
-
 
     const APP_NAME = 'PipeValidator';
     const VALID_OS = array('LINUX', 'DARWI'); // max long char(5)
@@ -131,8 +127,6 @@ MAN;
                       'long' => 'version')   
     );
     
-
-    
     /**
      * Method configureCli
      *
@@ -145,7 +139,7 @@ MAN;
                             "Manual General del Comando        (1)";
 
         self::$MAN_FOOTER = PHP_EOL."Version : $this->_version                     ".
-                            "$this->_versiondate                 $this->appname (1)";
+                            "$this->_versiondate                 $this->_appname (1)";
 
         $shortOptionsList = array_keys(self::$optionDefs);
         self::$options = $this->parseOptions($_SERVER['argv'], $shortOptionsList);
@@ -169,7 +163,6 @@ MAN;
      *   -h -s -l
      *    array()
      */
-  
     static public function parseOptions($args, $allowed = array()): array
     {
  
@@ -213,8 +206,8 @@ MAN;
                         for ($j = 1; $j < strlen($args[$i]) - 1; $j++) {
 
                             try {
-                                if (empty($allowed) || 
-                                    in_array($args[$i][$j], $allowed)
+                                if (empty($allowed)
+                                    || in_array($args[$i][$j], $allowed)
                                 ) {
                                     $options[$args[$i][$j]] = true;
                                 } else {
@@ -341,7 +334,6 @@ MAN;
     static function checkOS(): bool
     {
         return in_array(strtoupper(substr(PHP_OS, 0, 5)), self::VALID_OS);
-
     }
 
 }

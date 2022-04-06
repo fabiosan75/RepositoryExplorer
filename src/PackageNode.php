@@ -1,126 +1,246 @@
 <?php
-
+/**
+ * PHP version 7
+ *
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
+ */
 namespace GetTreeRepository;
 
 use GetTreeRepository\Interfaces\ComposerReaderInterface;
 
+/**
+ * Class PackageNode : Implementa los metodos para crear un objeto Package
+ *                     con todas los atributos/propiedades del composer SCHEMA
+ * 
+ * @category Class
+ * @package  GetTreeRepository
+ * @author   fabiosan75 <fabiosan75@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/fabiosan75
+ */
 class PackageNode
 {
+    const URL_BASE_REPOSITORY = 'https://github.com/';
+    const TYPE_REPOSITORY = 'vcs';
 
-    private $_idNode;
-
-    private $_idPackage;
-
-    private $_name;
-
-    private $_vendor;
-
-    private $_version;
-
-    private $_source;
-
-    private $_type;
-
-    private $_license;
-
-    private $_authors;
-
-    private $_attributes = array();
-
-    private $_repositories = array();
-
-    private $_require = array();
-
-    public $composerReaderI;
-
-    public function __construct(ComposerReaderInterface $composerReader)
-    {
-        $this->composerReaderI = $composerReader;
-    }
-
+    /* $repoHost : Host validos repositorios Basado en los metodos 
+                    implementados en el paquete de Composer 
+        URL : https://fossies.org/linux/www/legacy/composer-2.2.6.tar.gz/composer-2.2.6/src/Composer/Util/Url.php
+    */
+    private static $_repoHost = array('api.github.com','github.com',
+                              'www.github.com','gitlab.com','www.gitlab.com',
+                              'bitbucket.org','www.bitbucket.org');
 
     /**
-     * Get the value of _idNode
-     */ 
-    public function get_idNode()
-    {
-        return $this->_idNode;
-    }
+     * _configAttrArray Lista de atributos a ser "seteados" dinamicamente 
+     *                  como propiedades de la clase con el metodo setProperties()
+     *                  del json SCHEMA a el componente del paquene PackageNode  
+     *                  EJ : 'name','license','type' estas propiedades NO deben 
+     *                  ser del tipo array como (require/repositories etc).
+     * 
+     * @var array
+     */
+    private static $_configAttrArray = array('name','description',
+                                    'version',
+                                    'license','type');
 
+    static $idNode;
+
+    static $idPackage;
+    protected string $name; // <vendor>/<name>
+    protected string $shortName; // <name>
+    protected string $vendor; // <vendor>
+    protected string $version;
+    protected string $source;
+    protected string $type;
+    protected string $description;
+    protected string $license;
+    protected $authors;
+    protected $attributes;
+    protected $repositories;
+    protected $require;
+
+    public static $reader;
+    
     /**
-     * Set the value of _idNode
+     * Method __construct
      *
-     * @return self
-     */ 
-    public function set_idNode($idNode)
-    {
-        $this->_idNode = $idNode;
-
-    }
-
-    /**
-     * Get the value of _idPackage
-     */ 
-    public function get_idPackage()
-    {
-        return $this->_idPackage;
-    }
-
-    /**
-     * Set the value of _idPackage
+     * @param ComposerReaderInterface $reader 
      *
-     * @return self
-     */ 
-    public function set_idPackage($idPackage)
+     * @return void
+     */
+    public function __construct(ComposerReaderInterface $reader)
     {
-        $this->_idPackage = $idPackage;
+        self::$reader = $reader;
+        $this->loadConfig();
     }
-
+    
     /**
-     * Get the value of _name
-     */ 
-    public function get_name()
-    {
-        return $this->_name;
-    }
-
-    /**
-     * Set the value of _name
+     * Method loadConfig
      *
-     * @return self
-     */ 
-    public function set_name($name)
+     * @return void
+     */
+    public function loadConfig(): void
     {
-        $this->_name = $name;
-    }
+        $pkgName = self::$reader->getAttribute('name');
 
-    /**
-     * Get the value of _vendor
-     */ 
-    public function get_vendor()
-    {
-        return $this->_vendor;
-    }
+        list($vendor,$shortName) = array_pad(explode('/', $pkgName), 2, null);
 
+        $vendor = substr($pkgName, 0, strpos($pkgName, '/'));
+
+        $this->setType(self::$reader->getAttribute('type'));
+
+        $this->setName($pkgName);  // <vendor>/<name> 
+        $this->setVendor($vendor); // <vendor>
+        $this->setShortName($shortName); // <name>
+        $this->setProperties(self::$_configAttrArray);
+        $this->setAttributes(self::$reader->config);
+        $this->setAuthors(self::$reader->getAttrArray('authors'));
+
+        $arrayRepositories = $this->setUpRepositories(
+            $vendor,
+            self::$reader->getAttrArray('repositories')
+        );
+
+        $this->setRepositories($arrayRepositories);
+
+        $arrayRequire =  $this->setUpRequire(
+            self::$reader->getAttrArray('require'),
+            $arrayRepositories
+        );
+
+        $this->setRequire($arrayRequire);
+    }
+    
     /**
-     * Set the value of _vendor
+     * Method getIdNode
      *
-     * @return self
-     */ 
-    public function set_vendor($vendor)
+     * @return int
+     */
+    public function getIdNode():int
     {
-        $this->_vendor = $vendor;
+        return $this->idNode;
+    }
+    
+    /**
+     * Method setIdNode
+     *
+     * @param int $idNode 
+     *
+     * @return void
+     */
+    public function setIdNode(int $idNode)
+    {
+        $this->idNode = $idNode;
+
+    }
+    
+    /**
+     * Method getIdPackage
+     *
+     * @return string
+     */
+    public function getIdPackage():string
+    {
+        return $this->idPackage;
     }
 
+     
     /**
-     * Get the value of _version
-     */ 
-    public function get_version()
+     * Method setIdPackage
+     *
+     * @param int $idPackage packageName
+     *
+     * @return void
+     */
+    public function setIdPackage(string $idPackage)
     {
-        return $this->_version;
+        $this->idPackage = $idPackage;
+    }
+     
+    /**
+     * Method getName
+     *
+     * @return string
+     */
+    public function getName():string
+    {
+        return $this->name;
+    }
+    
+    /**
+     * Method setName
+     *
+     * @param string $name 
+     *
+     * @return void
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
     }
 
     
+    /**
+     * Method getShortName
+     *
+     * @return string
+     */
+    public function getShortName():string
+    {
+        return $this->shortName;
+    }
+     
+    /**
+     * Method setShortName
+     *
+     * @param sting $shortName 
+     *
+     * @return void
+     */
+    public function setShortName(string $shortName)
+    {
+        $this->shortName = $shortName;
+
+        return $this;
+    }
+     
+    /**
+     * Method getVendor
+     *
+     * @return string
+     */
+    public function getVendor():string
+    {
+        return $this->vendor;
+    }
+     
+    /**
+     * Method setVendor
+     *
+     * @param string $vendor 
+     *
+     * @return void
+     */
+    public function setVendor(string $vendor)
+    {        
+        $this->vendor = $vendor;
+    }
+    
+    /**
+     * Method getVersion
+     *
+     * @return string
+     */
+    public function getVersion():string
+    {
+        return $this->version;
+    }
+
     /**
      * Method setVersion
      *
@@ -128,116 +248,166 @@ class PackageNode
      *
      * @return void
      */
-    public function set_version($version)
+    public function setVersion(string $version)
     {
-        $this->_version = $version;
+        $this->version = $version;
     }
-
+    
     /**
-     * Get the value of _source
-     */ 
-    public function get_source()
-    {
-        return $this->_source;
-    }
-
-    /**
-     * Set the value of _source
+     * Method getSource
      *
-     * @return self
-     */ 
-    public function set_source($source)
+     * @return string
+     */
+    public function getSource():string
     {
-        $this->_source = $source;
+        return $this->source;
     }
 
     /**
-     * Get the value of _type
-     */ 
-    public function get_Type()
-    {
-        return $this->_type;
-    }
-
-    /**
-     * Set the value of _type
+     * Method setSource
      *
-     */ 
-    public function set_Type($type)
-    {
-        $this->_type = $type;
-    }
-
-    /**
-     * Get the value of _license
-     */ 
-    public function get_License()
-    {
-        return $this->_license;
-    }
-
-    /**
-     * Set the value of _license
+     * @param string $source 
      *
-     * @return self
-     */ 
-    public function set_License($license)
+     * @return void
+     */
+    public function setSource(string $source)
     {
-        $this->_license = $license;
+        $this->source = $source;
     }
-
+     
     /**
-     * Get the value of _authors
-     */ 
-    public function get_Authors()
-    {
-        return $this->_authors;
-    }
-
-    /**
-     * Set the value of _authors
+     * Method getType
      *
-     * @return self
-     */ 
-    public function set_Authors($authors)
+     * @return string
+     */
+    public function getType():string
     {
-        $this->_authors = $authors;
+        return $this->type;
     }
-
+     
     /**
-     * Get the value of _attributes
-     */ 
-    public function get_attributes()
-    {
-        return $this->_attributes;
-    }
-
-    /**
-     * Set the value of _attributes
+     * Method setType
      *
-     * @return self
-     */ 
-    public function set_attributes($attributes)
-    {
-        $this->_attributes = $attributes;
-    }
-
-    /**
-     * Get the value of _repositories
-     */ 
-    public function get_Repositories()
-    {
-        return $this->_repositories;
-    }
-
-    /**
-     * Set the value of _repositories
+     * @param string $type 
      *
-     * @return self
-     */ 
-    public function set_Repositories($repositories)
+     * @return void
+     */
+    public function setType(string $type)
     {
-        $this->_repositories = $repositories;
+        $this->type = $type;
+    }
+     
+    /**
+     * Method getDescription
+     *
+     * @return string
+     */
+    public function getDescription():string
+    {
+        return $this->description;
+    }
+    
+    /**
+     * Method setDescription
+     *
+     * @param string $description 
+     *
+     * @return void
+     */
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+     
+    /**
+     * Method getLicense
+     *
+     * @return string
+     */
+    public function getLicense():string
+    {
+        return $this->license;
+    }
+     
+    /**
+     * Method setLicense
+     *
+     * @param string $license 
+     *
+     * @return void
+     */
+    public function setLicense(string $license)
+    {
+        $this->license = $license;
+    }
+
+    /**
+     * Method getAuthors
+     *
+     * @return array
+     */
+    public function getAuthors():array
+    {
+        return $this->authors;
+    }
+ 
+    /**
+     * Method setAuthors
+     *
+     * @param array $authors 
+     *
+     * @return void
+     */
+    public function setAuthors(array $authors)
+    {
+        $this->authors = $authors;
+    }
+
+     
+    /**
+     * Method getAttributes
+     *
+     * @return array
+     */
+    public function getAttributes():array
+    {
+        return $this->attributes;
+    }
+ 
+    /**
+     * Method setAttributes
+     *
+     * @param array $attributes 
+     *
+     * @return void
+     */
+    public function setAttributes(array $attributes)
+    {
+        $this->attributes = $attributes;
+    }
+
+    /**
+     * Method getRepositories
+     *
+     * @return array
+     */
+    public function getRepositories():array
+    {
+        return $this->repositories;
+    }
+
+    /**
+     * Method setRepositories
+     *
+     * @param array $repositories Atributo/propiedad <repositories> en composer.json
+     *
+     * @return void
+     */
+    public function setRepositories(array $repositories)
+    {
+        $this->repositories = $repositories;
     }
      
     /**
@@ -245,32 +415,131 @@ class PackageNode
      *
      * @return void
      */
-    public function get_Require()
+    public function getRequire():array
     {
-        return $this->_require;
+        return $this->require;
     }
 
+      
     /**
-     * Set the value of _require
-     */ 
-    public function set_Require($require)
+     * Method setRequire
+     *
+     * @param array $require Atributo/propiedad <requiere> en composer.json
+     *
+     * @return void
+     */
+    public function setRequire(array $require)
     {
-        $this->_require = $require;
+        $this->require = $require;
     }
+    
+    /**
+     * Method setProperties Implementa el metodo para "setear" dinamicamente 
+     *                  la Lista de atributos $_configAttrArray como propiedades 
+     *                  de la clase 
+     *
+     * @param array $attrNames Atributos del SCHEMA Ej: 'name','license','type'
+     *
+     * @return void
+     */
+    public function setProperties(
+        array $attrNames = array('name','license','type')
+    ):void {
 
-    public function setProperties(array $attrNames = array('name','license','type'))
-    {
+        foreach ( $attrNames as $attrName) {
 
-        foreach ( $attrNames as $key => $attrName) {
-
-            if ($this->composerReaderI->hasAttribute($attrName)) {
-                $methodName = 'set_'.$attrName;
-                $value = $this->composerReaderI->getAttribute($attrName);
-                $this->$methodName($value);
+            if (self::$reader->hasAttribute($attrName)) {
+                $methodName = 'set'.ucfirst($attrName);
+                $value = self::$reader->getAttribute($attrName);
+                self::$methodName($value);
             }        
         }
 
-        $this->set_attributes($this->composerReaderI->config);
+    }
+    
+    /**
+     * Method setUpRepositories
+     *
+     * @param string $vendorName   VendorName de paquete a filtrar
+     *                             Para agreagr solo del mismo Vendor 
+     * @param array  $repositories Repositorios de jsonSchema
+     *
+     * @return array
+     */
+    public function setUpRepositories(string $vendorName, array $repositories): array
+    {
+        $pckRepositories = [];
+
+        foreach ($repositories as $repository) {
+            
+            if (!array_key_exists('url', $repository)) {
+                continue;
+            }
+
+            $host = parse_url($repository['url'], PHP_URL_HOST);
+
+            //  echo in_array($host, self::$_repoHost)?'EN ARRAY':'NO EN ARRA';
+
+            if (empty($repository)
+                || !array_key_exists('type', $repository)
+                || !in_array($host, self::$_repoHost)
+            ) {
+                continue;
+            }
+
+            $pkgName = ltrim(parse_url($repository['url'], PHP_URL_PATH), '/');
+
+             // Explode Package name (<vendor>/<name>)
+            list($vendorPck,$repoName) = array_pad(explode('/', $pkgName), 2, null);
+    
+            if ($vendorName === $vendorPck 
+                && ($repository['type'] && self::TYPE_REPOSITORY)
+            ) {
+                $pckRepositories[$pkgName] = array(
+                    "type" => $repository['type'],
+                    "vendor" => $vendorPck,
+                    "source" => $repository['url']
+                );
+            }
+        }
+        return $pckRepositories;
+    }
+    
+    /**
+     * Method setUpRequire Crea un array con las dependiencias del paquete
+     *                     para ser "seteadas" en el objeto packageNode
+     *
+     * @param array $requireArray Arreglo con los dependencias encontrados en el
+     *                            composer.json propiedad <require>
+     * @param array $repositories Arreglo con los repositorios encontrados en el
+     *                            composer.json <repositories> para validar que
+     *                            la dependencia esta incluida en los repositorios
+     *                            definidos para el paquete/proyecto
+     *
+     * @return array
+     */
+    public function setUpRequire(array $requireArray, array $repositories): array
+    {
+        $pckRequire = [];
+
+        foreach ($requireArray as $pckName => $pckVersion) {
+           
+            // si el paquete/libreria noexiste en repositories
+            if (!array_key_exists($pckName, $repositories)) {
+                continue;
+            }
+
+            $pckRequire[$pckName] = array(
+                                        "name" => $pckName,
+                                        "version" => $pckVersion,
+                                        "url" => $repositories[$pckName]['source']
+                                    );
+        }
+
+        return $pckRequire;
     }
 
+        
 }
+
+

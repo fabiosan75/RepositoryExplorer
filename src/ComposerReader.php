@@ -123,7 +123,7 @@ class ComposerReader implements ComposerReaderInterface
      *
      * @param $attrName Nombre del Atributo/propiedad 
      *
-     * @return void
+     * @return bool
      */
     public function hasAttribute($attrName):bool
     {

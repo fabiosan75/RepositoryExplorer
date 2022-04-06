@@ -11,32 +11,30 @@
 namespace GetTreeRepository\Util;
 
 /**
- *  ArrayTreeViewUtil  Genera una vista de arbol de un array 
- *                     asociativo multidimensional, retorna string
- *                     con la representación en forma de arbol
- *                        |padre : valor
- *                              |_nodo : valor
- *                                  |_nodo : valor
- *
+ * ArrayUtil Funciones para manipulación de arrays
+ * 
  * @category Class
  * @package  GetTreeRepository
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-class ArrayTreeViewUtil
+class ArrayUtil
 {
     /**
-     * Method iterateArray Recorre de forma recursiva un array 
-     *                     asociativo multidimensional, retorna 
-     *                     string con la representación |_ 
+     *  Method treeView  Genera una vista de arbol de un array asociativo
+     *                   multidimensional, retorna string con la
+     *                   representación en forma de arbol.
+     *                        |padre : valor
+     *                              |_nodo : valor
+     *                                  |_nodo : valor
      *
      * @param array $data  Array asociativo 
      * @param int   $level Nivel inicial default 1
      *
      * @return string
      */
-    public static function iterate(array $data,int $level): string 
+    public static function treeView(array $data,int $level): string 
     {
         
         $spaces = '';                                        
@@ -59,13 +57,43 @@ class ArrayTreeViewUtil
 
             } else {                            
                 // Agregar titulo a la rama para el siguiente nivel
-                $next = self::iterate($value, ($level+1));
+                $next = self::treeView($value, ($level+1));
                 $branch = $branch.$spaces."|_".$key.PHP_EOL.$next;
             }
         }
         return $branch;
 
-
     }
-    
+     
+    /**
+     * Method arrayReplace Busca el string $find por llave en un array 
+     *                     multidimensional y lo reemplaza por $replace
+     *                     Retorna el array con los nuevos valores
+     *
+     * @param array  $array   Array origen de datos
+     * @param string $find    Llave a buscar
+     * @param $replace Valor a reemplazar
+     *
+     * @return array
+     */
+    public static function arrayReplace(
+        array $array,
+        string $find, 
+        $replace
+    ):array {
+        
+        if (is_array($array)) {
+            foreach ($array as $key => $val) {
+                if (is_array($array[$key])) {
+                    $array[$key] = self::arrayReplace($array[$key], $find, $replace);
+                } else {
+                    if ($key === $find) {
+                            $array[$key] = $replace;
+                    }
+                }
+            }
+        }
+        return $array;
+    }
+
 }

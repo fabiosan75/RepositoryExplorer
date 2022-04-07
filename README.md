@@ -22,15 +22,9 @@ Puede obtener el proyecto clonando el repositorio directamente.
 git clone https://github.com/fabiosan75/RepositoryExplorer.git
 ```
 
-### Configuracion
-
-```bash
-git clone https://github.com/fabiosan75/RepositoryExplorer.git
-```
-
 ## Ejecucion
 
-El script puede ejecutarse pasándolo como argumento al interprete de php
+El script puede ejecutarse pasándolo como argumento al interprete de php :
 
 `$ > php src/CliApp.php [opcion] <argumento>`
 
@@ -42,7 +36,7 @@ El script contiene en la primer línea un [shebang](https://en.wikipedia.org/wik
 
 `$ > chmod +x src/CliApp.php`
 
-Cuando las lineas generadas por el comando sean mayores al buffer de su consola o terminal, 
+Cuando las lineas generadas por el comando sean mayores al buffer de su consola o terminal, puede redireccionar la salida del comando a un archivo de texto que podrá visualizar en cualquier editor.
 
 `$ > php src/CliApp.php [opcion] <argumento> > packageResult.txt` 
 

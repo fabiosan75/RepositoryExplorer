@@ -95,5 +95,31 @@ class ArrayUtil
         }
         return $array;
     }
-
+    
+    /**
+     * Method getParentByValue Busca una cadena/valor en un array multidimensional
+     *                         Devuelve como resultado los padres desde root hasta
+     *                         la posicion en la que se encuentra el dato. 
+     *
+     * @param array  $array  Origen de datos
+     * @param string $needle Cadena/Valor a buscar
+     * @param array  $parent Array por referencia retorna el resultado
+     *
+     * @return void
+     */
+    public static function getParentByValue(
+        array $array,
+        string $needle,
+        array &$parent
+    ) {
+        foreach ($array as $key => $value) {
+            if ($value == $needle || is_array($value) 
+                && self::getParentByValue($value, $needle, $parent)
+            ) {
+                array_unshift($parent, $key);
+                return true;
+            }
+        }
+        return false;
+    }
 }

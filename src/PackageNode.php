@@ -3,21 +3,21 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
-use GetTreeRepository\Interfaces\ComposerReaderInterface;
+use RepositoryExplorer\Interfaces\ComposerReaderInterface;
 
 /**
  * Class PackageNode : Implementa los metodos para crear un objeto Package
  *                     con todas los atributos/propiedades del composer SCHEMA
  * 
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

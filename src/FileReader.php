@@ -3,22 +3,22 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
-use GetTreeRepository\Interfaces\FileReaderInterface;
-use GetTreeRepository\Util\FileSystemException;
+use RepositoryExplorer\Interfaces\FileReaderInterface;
+use RepositoryExplorer\Util\FileSystemException;
 
 /**
  * FileReader : Implementa los metodos para el acceso al FileSystem
  *              Lectura y validación de archivo.
  * 
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

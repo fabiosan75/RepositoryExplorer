@@ -5,7 +5,7 @@
     "license": "propietary",
     "autoload": {
         "psr-4": {
-            "GetTreeRepository\\": "src/"
+            "RepositoryExplorer\\": "src/"
         }
     },
     "authors": [

@@ -3,12 +3,12 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-namespace GetTreeRepository\Util;
+namespace RepositoryExplorer\Util;
 
 /**
  * Logger   Almacena los mensaje de excepción/errores en un archivo log.txt
@@ -17,7 +17,7 @@ namespace GetTreeRepository\Util;
  *          a manejadores de LOGs formales.
  *                      
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

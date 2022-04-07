@@ -3,25 +3,25 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
-use GetTreeRepository\Util\ComposerException;
-use GetTreeRepository\Interfaces\ComposerReaderInterface;
-use GetTreeRepository\Interfaces\FileReaderInterface;
-use GetTreeRepository\Interfaces\JsonDecoderInterface;
+use RepositoryExplorer\Util\ComposerException;
+use RepositoryExplorer\Interfaces\ComposerReaderInterface;
+use RepositoryExplorer\Interfaces\FileReaderInterface;
+use RepositoryExplorer\Interfaces\JsonDecoderInterface;
 
 /**
  * Class ComposerReader Implementa los metodos necesarios para leer elementos de
  *                      archivos composer.json y obtener propiedades de su SCHEMA 
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

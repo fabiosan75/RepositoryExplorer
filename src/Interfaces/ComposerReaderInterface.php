@@ -5,20 +5,20 @@
  * PHP version 7
  *
  * @category Interface
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository\Interfaces;
+namespace RepositoryExplorer\Interfaces;
 
 /**
  * Interface ComposerReaderInterface : Define los metodos para el acceso a las 
  *                                     propiedades de un json SCHEMA
  * 
  * @category Interface
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

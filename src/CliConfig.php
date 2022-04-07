@@ -3,18 +3,18 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use GetTreeRepository\Util\CliException;
-use GetTreeRepository\Util\CliMsg;
+use RepositoryExplorer\Util\CliException;
+use RepositoryExplorer\Util\CliMsg;
 
 /**
  * CLIClass Class Implementa los metodos necesarios para el uso de CLI
@@ -22,7 +22,7 @@ use GetTreeRepository\Util\CliMsg;
  *   por STDOUT según las opciones de entrada y parametros entregados al comando.
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
@@ -119,7 +119,7 @@ MAN;
                       'long' => 'show'),
         't' => array('Vista de Arbol del repositorio', 
                       'long' => 'treeview'),
-        'e' => array('Explora el repositorio muestra una Vista de Arbol de cada SCHEMA', 
+        'e' => array('Explora el repositorio muestra Vista de Arbol de cada SCHEMA', 
                       'long' => 'explore'),
         'l' => array('Muestra contenido del log del comando.', 
                       'long' => 'log'),
@@ -139,7 +139,7 @@ MAN;
                             "Manual General del Comando        (1)";
 
         self::$MAN_FOOTER = PHP_EOL."Version : $this->_version                     ".
-                            "$this->_versiondate                 $this->_appname (1)";
+                            "$this->_versiondate                $this->_appname (1)";
 
         $shortOptionsList = array_keys(self::$optionDefs);
         self::$options = $this->parseOptions($_SERVER['argv'], $shortOptionsList);

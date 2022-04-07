@@ -3,28 +3,28 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
 //use Directory;
-use GetTreeRepository\ComposerReader;
-use GetTreeRepository\PackageNode;
-use GetTreeRepository\Interfaces\DirectoryReaderInterface;
-use GetTreeRepository\Util\ArrayUtil;
+use RepositoryExplorer\ComposerReader;
+use RepositoryExplorer\PackageNode;
+use RepositoryExplorer\Interfaces\DirectoryReaderInterface;
+use RepositoryExplorer\Util\ArrayUtil;
 
 /**
  * Class PackageExplorer : Implementa los metodos para la valiacion del reposotorio
  *                         del proyecto y las dependencias.
  * 
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

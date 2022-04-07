@@ -4,21 +4,21 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-use GetTreeRepository\Util\CliException;
-use GetTreeRepository\CliConfig;
-use GetTreeRepository\PackageExplorer;
-use GetTreeRepository\Util\CliMsg;
-use GetTreeRepository\Util\ArrayUtil;
+use RepositoryExplorer\Util\CliException;
+use RepositoryExplorer\CliConfig;
+use RepositoryExplorer\PackageExplorer;
+use RepositoryExplorer\Util\CliMsg;
+use RepositoryExplorer\Util\ArrayUtil;
 
 /**
  * CliApp Class 
@@ -28,7 +28,7 @@ use GetTreeRepository\Util\ArrayUtil;
  *            entregados al comando.
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

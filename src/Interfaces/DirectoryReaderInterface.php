@@ -5,19 +5,19 @@
  * PHP version 7
  *
  * @category Interface
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
 
-namespace GetTreeRepository\Interfaces;
+namespace RepositoryExplorer\Interfaces;
 
 /**
  * Interface DirectoryReaderInterface : Define los metodos para acceso al FileSystem
  * 
  * @category Interface
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
@@ -58,7 +58,7 @@ interface DirectoryReaderInterface
      * Method show Devuelve una cadena formateada con la lista de directorios
      * y archivos contenidos en $listFiles
      * 
-     *  Ej :    GetTreeRepository =>  ..//GetTreeRepository/composer.json
+     *  Ej :    RepositoryExplorer =>  ..//RepositoryExplorer/composer.json
      *                  Proyecto1 =>  ..//Proyecto1/composer.json
      *                  libreria2 =>  ..//libreria2/composer.json
      *                  libreria4 =>  ..//libreria4/composer.json

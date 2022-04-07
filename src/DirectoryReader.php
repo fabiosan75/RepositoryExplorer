@@ -3,22 +3,22 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-namespace GetTreeRepository;
+namespace RepositoryExplorer;
 
-use GetTreeRepository\Interfaces\DirectoryReaderInterface;
-use GetTreeRepository\Util\FileSystemException;
+use RepositoryExplorer\Interfaces\DirectoryReaderInterface;
+use RepositoryExplorer\Util\FileSystemException;
 
 /**
  * DirectoryReader : Implementa los metodos para el acceso al FileSystem y
  *                   obtener lista de archivos 
  * 
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
@@ -108,7 +108,7 @@ class DirectoryReader implements DirectoryReaderInterface
      * Method show Devuelve una cadena formateada con la lista de directorios
      * y archivos contenidos en $listFiles
      * 
-     *  Ej :    GetTreeRepository =>  ..//GetTreeRepository/composer.json
+     *  Ej :    RepositoryExplorer =>  ..//RepositoryExplorer/composer.json
      *                  Proyecto1 =>  ..//Proyecto1/composer.json
      *                  libreria2 =>  ..//libreria2/composer.json
      *                  libreria4 =>  ..//libreria4/composer.json

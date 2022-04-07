@@ -3,22 +3,22 @@
  * PHP version 7
  *
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
-namespace GetTreeRepository\Util;
+namespace RepositoryExplorer\Util;
 
-use GetTreeRepository\Util\Logger;
-use GetTreeRepository\Util\CliMsg;
+use RepositoryExplorer\Util\Logger;
+use RepositoryExplorer\Util\CliMsg;
 
 /**
  * CliException Extencion class Exception para el manejo de mensajes de exception
  *              y log de aplicación CLI
  *                      
  * @category Class
- * @package  GetTreeRepository
+ * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75

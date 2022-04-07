@@ -56,7 +56,7 @@ Ejecutando el comando con la opción -u, --usage podrá la información detallad
 command [-h] [-u]
 ```
 
-```<pre>
+<pre>
 <b>USO:	 src/CliApp.php </b>[OPTION] <_args>
 
 <b>OPCIONES:</b>
@@ -70,7 +70,7 @@ command [-h] [-u]
       -l --log                Muestra contenido del log del comando.
       -v --version            Ver version de aplicación
 </pre>         
-```         
+         
 
 ### Ejemplo
 
@@ -146,13 +146,13 @@ Explora el directorio especificado en <b>../</b> y genera un treeView de los sch
        |_fabiosan75/libreria4 : 1.0.0
 ```
 > Arbol de dependencias de repositorio
-> 
+
 `php src/CliApp.php -t ../   `
 
 Explora el directorio especificado en <b>../</b> generando de los SCHEMAs encontrados la dependencias del repositorio por proyecto **type: "project"**
 ```
-<b>Lista los archivos composer.json en el DIR del repositorio src/Path : ../</b>
-Vista de Arbol repositorio src : ../
+Lista los archivos composer.json en el DIR del repositorio src/Path : ../
+**Vista de Arbol repositorio src : ../**
  Dependencias :
     |_fabiosan75/proyecto1
        |_fabiosan75/libreria1 : fabiosan75/libreria1
@@ -171,7 +171,5 @@ Se genera un log de errores sin un formato especifico con el detalle de los erro
 ### Autor
 
 Esta aplicación fue creada por fabiosan75 para Ampliffy como plan de evaluación.
-
-
 
 

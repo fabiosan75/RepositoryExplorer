@@ -2,8 +2,10 @@
 
 - [Introducción](#introduccion)
 - [Instalación](#instalacion)
-- [Uso](#uso)
+- [Uso](#Uso)
 - [Logger](#logger)
+
+## Introducción
 
 RepositoryExplorer es una interface de lína de comandos que implementada PHP para explorar las dependencias de un repositorio
 basado en composer y establecer la secuencia de commits de un pipe en un modelo de CI/CD, permite ver los paquetes 

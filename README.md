@@ -4,7 +4,8 @@
 - [Introducción](#introduccion)
 - [Instalación](#instalacion)
 - [Ejecución](#ejecucion)
-- [Log](#logger)
+- [Log](#log)
+- [Autor](#autor)
 
 ## Introduccion
 
@@ -163,14 +164,10 @@ Lista los archivos composer.json en el DIR del repositorio src/Path : ../
        |_fabiosan75/libreria4 : fabiosan75/libreria4
 ```
 
-### Log
+## Log
 
 Se genera un log de errores sin un formato especifico con el detalle de los errores presentados y capturados durante la ejecución del CLI. El archivo log.txt es creado en el directorio de la aplicación.
 
-### Autor
+## Autor
 
 Esta aplicación fue creada por fabiosan75 para Ampliffy como plan de evaluación.
-
-
-
-

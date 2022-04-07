@@ -18,6 +18,7 @@ use GetTreeRepository\Util\CliException;
 use GetTreeRepository\CliConfig;
 use GetTreeRepository\PackageExplorer;
 use GetTreeRepository\Util\CliMsg;
+use GetTreeRepository\Util\ArrayUtil;
 
 /**
  * CliApp Class 
@@ -118,9 +119,8 @@ class CliApp extends CliConfig
                     $pckExplorer = new PackageExplorer($dirReader);
                     $composerFiles = $pckExplorer->listRepository($param);
                     $repoSchemas = $pckExplorer::getSchemaTree($composerFiles);
-                    //  print_r($repoSchemas);
 
-                    foreach ($repoSchemas as $repoName => $repoSchema) {
+                    foreach ($repoSchemas[0] as $repoName => $repoSchema) {
 
                         echo CliMsg::colorText(
                             " name : ".$repoName.PHP_EOL, 
@@ -140,6 +140,36 @@ class CliApp extends CliConfig
                     );
                 }
 
+                break;
+            case 't':
+            case 'treeview':
+        
+                if (!empty($param)) {
+                        echo CliMsg::colorText(
+                            " src : ".$param.PHP_EOL, 
+                            CliMsg::GREEN_TXTCOD
+                        );
+        
+                        $dirReader = new DirectoryReader($param);
+                        $pckExplorer = new PackageExplorer($dirReader);
+                        $composerFiles = $pckExplorer->listRepository($param);
+                        $repoSchemas = $pckExplorer::getSchemaTree($composerFiles);
+                        
+                        $treeArray = $pckExplorer::getRequire($repoSchemas);
+                        $viewData = ArrayUtil::treeView($treeArray, 1);
+
+
+                            echo CliMsg::colorText(
+                                " Dependencias : ".PHP_EOL.$viewData.PHP_EOL, 
+                                CliMsg::GREEN_TXTCOD
+                            );
+    
+                } else {
+                        throw new CliException(
+                            'src/Path no especificado. Verifique la ayuda (-h)'
+                        );
+                }
+        
                 break;
             case 's':
             case 'show':

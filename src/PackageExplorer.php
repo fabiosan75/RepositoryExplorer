@@ -141,7 +141,7 @@ class PackageExplorer
     }
 }
 
-
+/*
 $file = $argv[1];
 
 $dirReader = new DirectoryReader($file); 
@@ -165,7 +165,7 @@ foreach ($treeArray as $project => $tree) {
         print_r(($parent));
     }
 }
-
+*/
 
 
 //echo ArrayUtil::treeView($treeArray, 1);

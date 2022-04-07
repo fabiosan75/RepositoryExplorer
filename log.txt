@@ -392,3 +392,28 @@
 31-03-2022 20:53:34: CLI Error  Opcion Desconocida g in CliConfig.php:254
 31-03-2022 20:53:34: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:73
 31-03-2022 21:35:32: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+02-04-2022 02:46:29: FileSystem Error Directorio ls../ No Valido in DirectoryReader.php:43
+05-04-2022 16:24:31: json Error Formato Json Invalido ..//Proyecto1/composer.json in JsonDecoder.php:64
+05-04-2022 16:24:31: json Error  SCHEMA Vacio :..//Proyecto1/composer.json in ComposerReader.php:73
+05-04-2022 16:25:03: json Error Formato Json Invalido ..//libreria2/composer.json in JsonDecoder.php:64
+05-04-2022 16:25:03: json Error  SCHEMA Vacio :..//libreria2/composer.json in ComposerReader.php:73
+05-04-2022 17:51:01: FileSystem Error Directorio -e No Valido in DirectoryReader.php:43
+05-04-2022 17:53:39: FileSystem Error Directorio ../jh No Valido in DirectoryReader.php:43
+05-04-2022 17:54:25: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+05-04-2022 17:57:38: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+05-04-2022 17:58:19: CLI Error  Opcion Desconocida = in CliConfig.php:214
+05-04-2022 17:58:19: CLI Error  Opcion Desconocida . in CliConfig.php:214
+05-04-2022 17:58:19: CLI Error  Opcion Desconocida . in CliConfig.php:214
+05-04-2022 17:58:19: CLI Error  Opcion Desconocida / in CliConfig.php:235
+05-04-2022 17:58:19: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida x in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida p in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida o in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida = in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida . in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida . in CliConfig.php:214
+05-04-2022 17:58:30: CLI Error  Opcion Desconocida / in CliConfig.php:235
+05-04-2022 17:58:30: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+05-04-2022 17:58:36: CLI Error  Opcion Desconocida explore in CliConfig.php:181
+05-04-2022 17:58:36: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+05-04-2022 20:12:26: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43

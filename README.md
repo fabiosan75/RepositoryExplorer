@@ -8,9 +8,7 @@
 
 ## Introduccion
 
-RepositoryExplorer es una interface de lína de comandos que implementada PHP para explorar las dependencias de un repositorio
-basado en composer y establecer la secuencia de commits de un pipe en un modelo de CI/CD, permite ver los paquetes 
-por los que esta compuesto un proyecto y sus dependencias. 
+RepositoryExplorer es una interface de línea de comandos que implementada PHP para explorar las dependencias de un repositorio basado en composer y establecer la secuencia de commits de un pipe en un modelo de CI/CD, permite ver los paquetes por los que esta compuesto un proyecto y sus dependencias. 
 
 Para un mejor entendimiento puede ver la documentación de referencia del [SCHEMA de composer](https://getcomposer.org/doc/04-schema.md).
 
@@ -79,20 +77,20 @@ command [-h] [-u]
 `php src/CliApp.php -s ../   `
 
 Explora el directorio especificado en <b>../</b> en busqueda de los archivos composer.json de repositorio.
-```
-<b>Lista los archivos composer.json en el DIR del repositorio src/Path : ../</b>
+
+<pre><b>Lista los archivos composer.json en el DIR del repositorio src/Path : ../</b>
                  libreria1 =>  ..//libreria1/composer.json
                  Proyecto1 =>  ..//Proyecto1/composer.json
                  libreria2 =>  ..//libreria2/composer.json
                  libreria4 =>  ..//libreria4/composer.json
                  Proyecto2 =>  ..//Proyecto2/composer.json
-```
+</pre>
 > Ver SCHEMAs en el repositorio
 
 `php src/CliApp.php -e ../   `
 
 Explora el directorio especificado en <b>../</b> y genera un treeView de los schemas encontrados
-```
+<pre>
 <b>Explora el repositorio muestra Vista de Arbol de cada SCHEMA src : ../</b>
 <b>name : fabiosan75/libreria2</b>
     |_name : fabiosan75/libreria2
@@ -144,7 +142,8 @@ Explora el directorio especificado en <b>../</b> y genera un treeView de los sch
        |_php : >=7.4
        |_fabiosan75/libreria1 : 1.0.0
        |_fabiosan75/libreria4 : 1.0.0
-```
+</pre>
+
 > Arbol de dependencias de repositorio
 
 `php src/CliApp.php -t ../   `
@@ -171,5 +170,7 @@ Se genera un log de errores sin un formato especifico con el detalle de los erro
 ### Autor
 
 Esta aplicación fue creada por fabiosan75 para Ampliffy como plan de evaluación.
+
+
 
 

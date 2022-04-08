@@ -417,3 +417,6 @@
 05-04-2022 17:58:36: CLI Error  Opcion Desconocida explore in CliConfig.php:181
 05-04-2022 17:58:36: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
 05-04-2022 20:12:26: FileSystem Error Directorio 1 No Valido in DirectoryReader.php:43
+07-04-2022 20:26:46: CLI Error  Opcion Desconocida show in CliConfig.php:196
+07-04-2022 20:26:46: CLI Error  Formato Invalido ../ in CliConfig.php:242
+07-04-2022 20:26:46: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:78

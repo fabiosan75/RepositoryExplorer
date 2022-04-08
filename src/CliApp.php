@@ -106,6 +106,36 @@ class CliApp extends CliConfig
             case "--version":
                   echo self::$MAN_FOOTER.PHP_EOL;
                 break;
+            case 'p':
+            case 'pipe':
+                
+                if (!empty($param)) {
+                        echo CliMsg::colorText(
+                            " src : ".$param.PHP_EOL, 
+                            CliMsg::GREEN_TXTCOD
+                        );
+                
+                        $dirReader = new DirectoryReader($param);
+                        $pckExplorer = new PackageExplorer($dirReader);
+                        $composerFiles = $pckExplorer->listRepository($param);
+                        $repoSchemas = $pckExplorer::getSchemaTree($composerFiles);
+                                
+                        $treeArray = $pckExplorer::getRequire($repoSchemas);
+                        $viewData = ArrayUtil::treeView($treeArray, 1);
+        
+        
+                        echo CliMsg::colorText(
+                            " Dependencias : ".PHP_EOL.$viewData.PHP_EOL, 
+                            CliMsg::GREEN_TXTCOD
+                        );
+            
+                } else {
+                        throw new CliException(
+                            'src/Path no especificado. Verifique la ayuda (-h)'
+                        );
+                }
+                
+                break;
             case 'e':
             case 'explorer':
 

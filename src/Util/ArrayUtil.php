@@ -112,11 +112,19 @@ class ArrayUtil
         string $needle,
         array &$parent
     ) {
-        foreach ($array as $key => $value) {
-            if ($value == $needle || is_array($value) 
-                && self::getParentByValue($value, $needle, $parent)
-            ) {
-                array_unshift($parent, $key);
+        foreach ($array as $key => $child) {
+            if ($key === $needle) {
+                // return $key;
+                $parent[] = $key;
+                return true;
+            }
+            if (!is_array($child)) {
+                continue;
+            }
+            if (false !== $j = self::getParentByValue($child, $needle, $parent)) {
+                // return "{$i}->{$j}";
+                !is_bool($j)?$parent[] = $j:'';
+                $parent[] = $key;
                 return true;
             }
         }

@@ -139,10 +139,38 @@ class PackageExplorer
 
         return $treeArray;
     }
+    
+        
+    /**
+     * Method getDependeciesTree
+     *
+     * @param array  $treeRepoDeps [explicite description]
+     * @param string $repoToCommit [explicite description]
+     *
+     * @return array
+     */
+    public static function getDependeciesTree( 
+        array $treeRepoDeps, 
+        string $repoToCommit  
+    ): array {
+        $parent2 = [];
+        foreach ($treeRepoDeps as $project => $tree) {
+            $parent = [];
+            ArrayUtil::getParentByValue($tree, $repoToCommit, $parent);
+            if (!empty($parent)) {
+                $parent[] = $project;
+                $parent2[] = $parent;
+                //  print_r($parent);
+            }
+        }
+
+        return $parent2;
+    }
 }
 
-/*
+
 $file = $argv[1];
+$repoToCommit = $argv[2];
 
 $dirReader = new DirectoryReader($file); 
 
@@ -155,8 +183,16 @@ $repoSchemas = $pckExplorer::getSchemaTree($listComposerFiles);
 
 $treeArray = $pckExplorer::getRequire($repoSchemas);
 print_r($treeArray);
+//$repoToCommit = 'fabiosan75/libreria4'
+$arrayPipe = $pckExplorer::getDependeciesTree($treeArray, $repoToCommit);
+print_r($arrayPipe);
+exit;
+$parent = [];
+//recursiveFind($treeArray, $repoToCommit, $parent);
+var_dump($parent);
 
 
+/*
 foreach ($treeArray as $project => $tree) {
     $parent = [];
     ArrayUtil::getParentByValue($tree, 'fabiosan75/libreria1', $parent);

@@ -64,10 +64,11 @@ SYNOPSIS
        CliApp.php [-l src]
        CliApp [-e src]
 
-DESCRIPTION
-       CliApp es una herramienta para explorar las dependencias y establecer 
-       la secuencia de commits de un pipe en un modelo de CI/CD, permite ver los 
-       paquetes por los que esta compuesto un proyecto. 
+DESCRIPCION
+       CliApp es una herramienta para explorar las dependencias de un repositorio
+       basado en composer y establecer la secuencia de commits de un pipe en un
+       modelo de CI/CD, permite ver los paquetes por los que esta compuesto 
+       un proyecto. 
 
        Usabilidad : 
         La opcion [-e src/Path] la aplicacion mostrara el SCHEMA de los paquetes 
@@ -95,7 +96,7 @@ DESCRIPTION
 MAN;
        static $MAN_DIAGNOSTICS = <<<MAN
 
-DIAGNOSTICS
+DIAGNOSTICO
        Se generan mensajes informativos al ejecutar el comando usando parametros
        equivocados 
         (ej. CLI Error/Opcion Desconocida)
@@ -110,21 +111,32 @@ MAN;
 
     public static $optionDefs = array(
         'u' => array('Muestra la ayuda extendida e informacion del comando.', 
-                      'long' => 'usage'),
+                      'long' => 'usage',
+                      'args'=>''),
         'h' => array('Muestra la información de uso, command <options>.', 
-                      'long' => 'help'),
+                      'long' => 'help',
+                      'args'=>''),
+        'p' => array('Muestra la información de uso, command <options>.', 
+                      'long' => 'pipe',
+                      'args'=>'<path>'),
         'r' => array('Ruta al repositorio', 
-                      'long' => 'repository'),
+                      'long' => 'repository',
+                      'args'=>'<path>'),
         's' => array('Lista los archivos composer.json en el DIR del repositorio', 
-                      'long' => 'show'),
-        't' => array('Vista de Arbol del repositorio', 
-                      'long' => 'treeview'),
+                      'long' => 'show',
+                      'args'=>'<path>'),
+        't' => array('Vista de Arbol dependencias repositorio', 
+                      'long' => 'treeview',
+                      'args'=>'<path>'),
         'e' => array('Explora el repositorio muestra Vista de Arbol de cada SCHEMA', 
-                      'long' => 'explore'),
+                      'long' => 'explore',
+                      'args'=>'<path>'),
         'l' => array('Muestra contenido del log del comando.', 
-                      'long' => 'log'),
+                      'long' => 'log',
+                      'args'=>''),
         'v' => array('Ver version', 
-                      'long' => 'version')   
+                      'long' => 'version',
+                      'args'=>'')   
     );
     
     /**
@@ -307,17 +319,18 @@ MAN;
         $cmdname = isset($GLOBALS['argv'][0]) ? $GLOBALS['argv'][0] : self::APP_NAME;
 
         $strline .= "\n"
-              . "USAGE:"
-              . "\t $cmdname [OPTION]...\n"
+              . "USO: \t $cmdname [OPTION] [<args>]\n\n"
+              . "OPCIONES:\n"
               . "\n";
 
         foreach (self::$optionDefs as $name => $def) {
 
             $def += array('default' => '', 'short' => false);
             $strline .= sprintf(
-                " %10s %-20s %s\n",
+                " %10s %-10s %-20s %s\n",
                 $def['long'] ? ('-' . $name) : '',
                 "--".$def['long'],
+                $def['args'],
                 $def[0]
             );
 

@@ -1,0 +1,45 @@
+stages:
+    - build
+    - static_analysis
+    - test
+
+workflow:
+    rules:
+        - if: $CI_MERGE_REQUEST_ID
+        - if: $CI_COMMIT_BRANCH == 'master'
+        - if: $CI_PIPELINE_SOURCE =~ /^trigger|pipeline|web|api$/
+
+cache:
+    paths:
+        - vendor/
+
+#JOBS
+build_app:
+    stage: build
+    image:
+        name: php:7.3-apache
+    script:
+        - php -r "copy('https://getcomposer.org/download/1.10.17/composer.phar', 'composer.phar');"
+        - php composer.phar install --prefer-dist --no-progress --no-suggest
+
+phpcs:
+    stage: static
+    image:
+        name: cytopia/phpcs
+        entrypoint: ["/bin/ash", "-c"]
+    script:
+        - phpcs
+
+phpstan:
+    stage: static
+    image:
+        name: phpstan/phpstan
+        entrypoint: ["/bin/ash", "-c"]
+    script:
+        - phpstan analyse --no-interaction --ansi --error-format=table --no-progress --level 5 src
+
+test:
+    stage: test
+    image: php:7.3
+    script:
+        - php vendor/bin/phpunit

@@ -138,7 +138,7 @@ MAN;
                       'long' => 'version',
                       'args'=>'')   
     );
-    
+
     /**
      * Method configureCli
      *
@@ -227,8 +227,8 @@ MAN;
                                         'Opcion Desconocida ' . $args[$i][$j]
                                     );
                                 }
-                            } catch (CliException $e){
-                                  $e->cliError();
+                            } catch (CliException $e){    
+                                    $e->cliError();
                             }
                         }
       

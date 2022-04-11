@@ -19,11 +19,11 @@ build_app:
     image:
         name: php:7.3-apache
     script:
-        - php -r "copy('https://getcomposer.org/download/1.10.17/composer.phar', 'composer.phar');"
+        - php -r "copy('https://getcomposer.org/download/latest-stable/composer.phar', 'composer.phar');"
         - php composer.phar install --prefer-dist --no-progress --no-suggest
 
 phpcs:
-    stage: static
+    stage: static_analysis
     image:
         name: cytopia/phpcs
         entrypoint: ["/bin/ash", "-c"]
@@ -31,7 +31,7 @@ phpcs:
         - phpcs
 
 phpstan:
-    stage: static
+    stage: static_analysis
     image:
         name: phpstan/phpstan
         entrypoint: ["/bin/ash", "-c"]

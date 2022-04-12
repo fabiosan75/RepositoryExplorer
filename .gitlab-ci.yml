@@ -17,10 +17,13 @@ cache:
 build_app:
     stage: build
     image:
-        name: php:7.3-apache
+        name: php:7.4-apache
     script:
+        - apt-get update
+        - apt-get install -y software-properties-common
+        - apt-get install -y zip unzip
         - php -r "copy('https://getcomposer.org/download/latest-stable/composer.phar', 'composer.phar');"
-        - php composer.phar install --prefer-dist --no-progress --no-suggest
+        - php composer.phar install --prefer-dist --no-progress
 
 phpcs:
     stage: static_analysis
@@ -28,7 +31,7 @@ phpcs:
         name: cytopia/phpcs
         entrypoint: ["/bin/ash", "-c"]
     script:
-        - phpcs
+        - phpcs *.php
 
 phpstan:
     stage: static_analysis

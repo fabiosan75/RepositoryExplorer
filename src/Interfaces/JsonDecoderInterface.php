@@ -1,4 +1,5 @@
 <?php
+
 /**
  * JsonDecoderInterface
  *
@@ -15,7 +16,7 @@ namespace RepositoryExplorer\Interfaces;
 
 /**
  * Class JsonDecoderInterface : Implementa los metodos para el acceso al FileSystem
- * 
+ *
  * @category Class
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -25,29 +26,27 @@ namespace RepositoryExplorer\Interfaces;
 
 interface JsonDecoderInterface
 {
-
     /**
      * Method getSchema
      *
      * @return string
      */
     public function getSchema(): string;
-    
+
     /**
      * Method loadSchema Lee el contenido del archivo instanciado en $fileReader
      *                   valida que sea un json bien "formado" y retorna un array
      *                   con el SCHEMA
-     * 
-     * @return array
+     *
+     * @return array<string, array<string, string>|string>
      */
     public function loadSchema(): array;
-    
+
     /**
      * Method validateJsonFormat
      * Valida que el formato del SCHEMA sea un JSON "bien" formado
-     * 
+     *
      * @return bool
      */
     public function validateJsonFormat(): bool;
-    
 }

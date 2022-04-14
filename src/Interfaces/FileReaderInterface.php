@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FileReaderInterface
  *
@@ -14,9 +15,9 @@
 namespace RepositoryExplorer\Interfaces;
 
 /**
- * FileReaderInterface : Denine los metodos para el acceso al FileSystem
+ * FileReaderInterface : Define los metodos para el acceso al FileSystem
  *                       Lectura y validación de archivo.
- * 
+ *
  * @category Interface
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -25,26 +26,24 @@ namespace RepositoryExplorer\Interfaces;
  */
 interface FileReaderInterface
 {
-        
     /**
-     * Method getFileName 
+     * Method getFileName
      *
      * @return string
      */
-    public function getFileName():string;
-    
+    public function getFileName(): string;
+
     /**
      * Method canReadFile Valida que el archivo existe y tenga permisos de lectura
      *
      * @return bool
      */
-    public function canReadFile():bool;
-    
+    public function canReadFile(): bool;
+
     /**
-     * Method readFile Retorna el contenido del archivo 
+     * Method readFile Retorna el contenido del archivo
      *
      * @return string
      */
     public function readFile(): string;
-
 }

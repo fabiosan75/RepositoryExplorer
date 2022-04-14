@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ComposerReaderInterface
  *
@@ -14,9 +15,9 @@
 namespace RepositoryExplorer\Interfaces;
 
 /**
- * Interface ComposerReaderInterface : Define los metodos para el acceso a las 
+ * Interface ComposerReaderInterface : Define los metodos para el acceso a las
  *                                     propiedades de un json SCHEMA
- * 
+ *
  * @category Interface
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -26,16 +27,6 @@ namespace RepositoryExplorer\Interfaces;
 
 interface ComposerReaderInterface
 {
-    
-    /**
-     * Method getPropertySchema
-     *
-     * @param string $propertyName [explicite description]
-     *
-     * @return void
-     */
-    public function getPropertySchema(string $propertyName);
-    
     /**
      * Method loadConfig
      *
@@ -44,36 +35,35 @@ interface ComposerReaderInterface
      * @return void
      */
     public function loadConfig(JsonDecoderInterface $jsonDecoder);
-    
+
     /**
-     * Method hasAttribute  Verifica si Atributo/propiedad existe 
+     * Method hasAttribute  Verifica si Atributo/propiedad existe
      *                      en el composer->config Ej : name/version/require
      *
-     * @param $attrName Nombre del Atributo/propiedad 
+     * @param string $attrName Nombre del Atributo/propiedad
      *
      * @return bool
      */
-    public function hasAttribute($attrName):bool;
-    
+    public function hasAttribute(string $attrName): bool;
+
     /**
      * Method getAttribute
      *
-     * @param $attrName $attrName [explicite description]
+     * @param string $attrName $attrName [explicite description]
      *
      * @return string
      */
-    public function getAttribute($attrName):string;
-    
+    public function getAttribute(string $attrName): string;
+
+
     /**
      * Method getAttrArray
      *
      * @param string $attrName [explicite description]
      *
-     * @return array
+     * @return array<string>
      */
     public function getAttrArray(string $attrName): array;
 
     //  public function checkPkgName(string $pkgName): bool;
-
-
 }

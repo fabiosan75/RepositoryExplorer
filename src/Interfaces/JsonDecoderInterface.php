@@ -27,6 +27,13 @@ namespace RepositoryExplorer\Interfaces;
 interface JsonDecoderInterface
 {
     /**
+     * getReader
+     *
+     * @return FileReaderInterface
+     */
+    public function getReader(): FileReaderInterface;
+
+    /**
      * Method getSchema
      *
      * @return string

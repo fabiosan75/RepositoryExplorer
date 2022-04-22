@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7
  *
@@ -18,7 +19,7 @@ use RepositoryExplorer\Interfaces\JsonDecoderInterface;
 
 /**
  * Class ComposerReader Implementa los metodos necesarios para leer elementos de
- *                      archivos composer.json y obtener propiedades de su SCHEMA 
+ *                      archivos composer.json y obtener propiedades de su SCHEMA
  *
  * @category Class
  * @package  RepositoryExplorer
@@ -29,155 +30,146 @@ use RepositoryExplorer\Interfaces\JsonDecoderInterface;
 
 class ComposerReader implements ComposerReaderInterface
 {
+    /**
+     * Composer Schema
+     *
+     * @var array<string, array<string, string>|string>
+     */
+    public static array $dataSchema = [];
 
-    private $_dataSchema = [];
-    public $jsonDecoder;
+    public JsonDecoder $jsonDecoder;
 
-    public $config = [];
-   
-     
+    /**
+     *  Atributos Schema
+     *
+     * @var array<string, array<string, string>|string>
+     */
+    public array $config = [];
+
     /**
      * Method __construct
      *
-     * @param FileReaderInterface $reader 
+     * @param FileReaderInterface $reader instancia
      *
      * @return void
      */
     public function __construct(FileReaderInterface $reader)
-    { 
+    {
         $jsonDecoder = new JsonDecoder($reader);
         $this->loadConfig($jsonDecoder);
     }
- 
-     
+
     /**
      * Method loadConfig Mueve las propiedas del SCHEMA composer.json
      *                   a $config complementando la clase composer
      *                   con los atributos/propiedades del SCHEMA
      *
-     * @param JsonDecoderInterface $jsonDecoder 
-     * 
+     * @param JsonDecoderInterface $jsonDecoder Instancia
+     *
      * @return void
      */
     public function loadConfig(JsonDecoderInterface $jsonDecoder)
     {
-        $this->_dataSchema = $jsonDecoder->loadSchema();
-      
+        self::$dataSchema = $jsonDecoder->loadSchema();
+
         try {
-            if (!empty($this->_dataSchema)) {
-                foreach ( $this->_dataSchema as $key => $value) {
+            if (!empty(self::$dataSchema)) {
+                //  $jsonDecoder->fileReader::$fileName;
+                foreach (self::$dataSchema as $key => $value) {
                     $this->config[$key] = $value;
                 }
-
             } else {
                 throw new ComposerException(
                     " SCHEMA Vacio :"
-                    .$jsonDecoder->fileReader->getFileName()
+                    . $jsonDecoder->getReader()->getFileName()
                 );
             }
-        } catch (ComposerException $e) {  
-            echo $e->jsonError();
+        } catch (ComposerException $e) {
+            $e->jsonError();
             die();
         }
     }
-    
+
+    /**
+     * getConfig
+     *
+     * @return array<string, array<string, string>|string>
+     */
+    public function getConfig(): array
+    {
+        return $this->config;
+    }
+
     /**
      * Method getSchema Retorna el array con el SCHEMA completo del composer.json
      *
-     * @return array
+     * @return array<string, array<string, string>|string>
      */
-    public  function getSchema(): array 
+    public function getSchema(): array
     {
-        return $this->_dataSchema;
+        return self::$dataSchema;
     }
 
     /**
-     * Method getPropertySchema
-     *
-     * @param string $propertyName Nombre de la propiedad o grupo 
-     *                             de elementos a extraer
-     *
-     * @return array
-     */
-    public function getPropertySchema(string $propertyName)
-    {
-       
-        try {
-            if (isset($this->_dataSchema[$propertyName])) {
-                return $this->_dataSchema[$propertyName];
-            } else {
-                throw new ComposerException(
-                    "NE Propiedad '{$propertyName}' en SCHEMA "
-                );
-            }
-
-        } catch (ComposerException $e) {  
-            echo $e->jsonError();  
-            die();
-        }
-    }
-    
-    /**
-     * Method hasAttribute  Verifica si Atributo/propiedad existe 
+     * Method hasAttribute  Verifica si Atributo/propiedad existe
      *                      en el composer->config Ej : name/version/require
      *
-     * @param $attrName Nombre del Atributo/propiedad 
+     * @param string $attrName Nombre del Atributo/propiedad
      *
      * @return bool
      */
-    public function hasAttribute($attrName):bool
+    public function hasAttribute(string $attrName): bool
     {
         return isset($this->config[$attrName]);
     }
 
     /**
-     * Method getAttribute Devuelve un atributo del SCHEMA 
+     * Method getAttribute Devuelve un atributo del SCHEMA
      *
-     * @param $attrName Nombre del Atributo/propiedad del SCHEMA
+     * @param string $attrName Nombre del Atributo/propiedad del SCHEMA
      *
      * @return string
      */
-    public function getAttribute($attrName):string
+    public function getAttribute(string $attrName): string
     {
-
         try {
             if ($this->hasAttribute($attrName)) {
-                return $this->config[$attrName];
+                $attrValue = is_array($this->config[$attrName]) ?
+                    '' : $this->config[$attrName];
+                return $attrValue;
             } else {
                 throw new ComposerException("NE Propiedad '{$attrName}' en SCHEMA ");
             }
-
-        } catch (ComposerException $e) {  
-            echo $e->jsonError();  
+        } catch (ComposerException $e) {
+            $e->jsonError();
             die();
         }
-
     }
 
     /**
      * Method getAttrArray Extrae del SCHEMA una propiedad de tipo array
-     *                      Ej : require, repositories 
-     * 
+     *                      Ej : require, repositories
+     *
      * @param string $attrName Nombre de la propiedad o atributo del SCHEMA
      *
-     * @return array
+     * @return array<string, array<string, string>>|array<string, string>
+     *
      */
     public function getAttrArray(string $attrName): array
     {
         $attrValue = [];
-        if (array_key_exists($attrName, $this->config) 
-            && is_array($this->config["$attrName"])
-            && count($this->config["$attrName"])
+        if (
+            array_key_exists($attrName, $this->config)
+            && is_array($this->config[$attrName])
+            && count($this->config[$attrName])
         ) {
-
-            $attrValue = $this->config["$attrName"]; 
+            $attrValue = $this->config[$attrName];
         }
 
         return $attrValue;
-
     }
 
-    /*  
+    /*
         public function checkPkgName(string $pkgName): bool
         {
 
@@ -190,8 +182,7 @@ class ComposerReader implements ComposerReaderInterface
                 return false;
             }
         }
-    
+
 
     */
 }
-?>

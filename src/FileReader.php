@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7
  *
@@ -8,6 +9,7 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://github.com/fabiosan75
  */
+
 namespace RepositoryExplorer;
 
 use RepositoryExplorer\Interfaces\FileReaderInterface;
@@ -16,7 +18,7 @@ use RepositoryExplorer\Util\FileSystemException;
 /**
  * FileReader : Implementa los metodos para el acceso al FileSystem
  *              Lectura y validación de archivo.
- * 
+ *
  * @category Class
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -25,9 +27,8 @@ use RepositoryExplorer\Util\FileSystemException;
  */
 class FileReader implements FileReaderInterface
 {
-    
-    private $_fileName;
-    
+    private static string $fileName;
+
     /**
      * Method __construct
      *
@@ -37,55 +38,52 @@ class FileReader implements FileReaderInterface
      */
     public function __construct(string $fileName)
     {
-            $this->_fileName = $fileName;       
+            self::$fileName = $fileName;
     }
-         
+
     /**
      * Method getFileName
      *
      * @return string
      */
-    public function getFileName():string
+    public function getFileName(): string
     {
-            return $this->_fileName;       
+            return self::$fileName;
     }
 
     /**
-     * Method canReadFile Valida si $_fileName es archivo y tiene permisos de lectura
+     * Method canReadFile Valida si $fileName es archivo y tiene permisos de lectura
      *
      * @return bool
      */
-    public function canReadFile():bool
+    public function canReadFile(): bool
     {
-        if (is_file($this->_fileName) && is_readable($this->_fileName) ) {
+        if (is_file(self::$fileName) && is_readable(self::$fileName)) {
             return true;
         } else {
             return false;
         }
-        
     }
-         
+
     /**
-     * Method readFile Lee y retorna el contenido del archivo $_fileName
+     * Method readFile Lee y retorna el contenido del archivo $fileName
      *
      * @return string
      */
-    public function readFile():string 
+    public function readFile(): string
     {
         try {
-            if ($this->canReadFile($this->_fileName)) {
-                return file_get_contents($this->_fileName);
+            if ($this->canReadFile()) {
+                $contentFile = file_get_contents(self::$fileName);
+                return ($contentFile === '' || !$contentFile) ? '' : $contentFile;
             } else {
                 throw new FileSystemException(
-                    "Error Lectura Archivo :". $this->_fileName
+                    "Error Lectura Archivo :" . self::$fileName
                 );
             }
-
-        } catch (FileSystemException $e) {  
-            echo $e->fsError();
-            die("FileReader ERROR".PHP_EOL); 
+        } catch (FileSystemException $e) {
+            $e->fsError();
+            die("FileReader ERROR" . PHP_EOL);
         }
-        
     }
-    
 }

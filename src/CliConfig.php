@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP version 7
  *
@@ -10,8 +11,6 @@
  */
 
 namespace RepositoryExplorer;
-
-require_once __DIR__.'/../vendor/autoload.php';
 
 use RepositoryExplorer\Util\CliException;
 use RepositoryExplorer\Util\CliMsg;
@@ -30,16 +29,15 @@ use RepositoryExplorer\Util\CliMsg;
 
 class CliConfig
 {
+    private const APP_NAME = 'PipeValidator';
+    private const VALID_OS = array('LINUX', 'DARWI'); // max long char(5)
 
-    const APP_NAME = 'PipeValidator';
-    const VALID_OS = array('LINUX', 'DARWI'); // max long char(5)
+    private string $version = '1.0.0';
 
-    private $_version = '1.0.0';  
+    private string $versiondate = '17-03-2022';
+    private string $appname = 'Pipe Composer Repository Explorer';
 
-    private $_versiondate = '17-03-2022';
-    private $_appname = 'Pipe Composer Repository Explorer';
-
-    private static $_logo = "
+    private static string $logo = "
     ___                  _ _  __  __        ______ _            
     / _ \                | (_)/ _|/ _|       | ___ (_)           
    / /_\ \_ __ ___  _ __ | |_| |_| |_ _   _  | |_/ /_ _ __   ___ 
@@ -50,10 +48,10 @@ class CliConfig
                    |_|                |___/          |_|         
    ";
 
-    static $MAN_FOOTER;
-    static $MAN_HEADER;
+    private static string $MAN_FOOTER;
+    private static string $MAN_HEADER;
 
-    static $MAN_DESC = <<<MAN
+    private static string $MAN_DESC = <<<MAN
 
 NAME
        CliApp.php - Valida la estructura de un repositorio basado en composer.
@@ -94,7 +92,8 @@ DESCRIPCION
         encontrados.
 
 MAN;
-       static $MAN_DIAGNOSTICS = <<<MAN
+
+    private static string $MAN_DIAGNOSTICS = <<<MAN
 
 DIAGNOSTICO
        Se generan mensajes informativos al ejecutar el comando usando parametros
@@ -107,36 +106,42 @@ AUTHOR
 
 MAN;
 
-    public static $options = array();
+    /**
+     * @var array<int|string, string>
+     */
+    public static array $options = [];
 
-    public static $optionDefs = array(
-        'u' => array('Muestra la ayuda extendida e informacion del comando.', 
-                      'long' => 'usage',
-                      'args'=>''),
-        'h' => array('Muestra la información de uso, command <options>.', 
-                      'long' => 'help',
-                      'args'=>''),
-        'p' => array('Muestra la información de uso, command <options>.', 
-                      'long' => 'pipe',
-                      'args'=>'<path>'),
-        'r' => array('Ruta al repositorio', 
-                      'long' => 'repository',
-                      'args'=>'<path>'),
-        's' => array('Lista los archivos composer.json en el DIR del repositorio', 
-                      'long' => 'show',
-                      'args'=>'<path>'),
-        't' => array('Vista de Arbol dependencias repositorio', 
-                      'long' => 'treeview',
-                      'args'=>'<path>'),
-        'e' => array('Explora el repositorio muestra Vista de Arbol de cada SCHEMA', 
-                      'long' => 'explore',
-                      'args'=>'<path>'),
-        'l' => array('Muestra contenido del log del comando.', 
-                      'long' => 'log',
-                      'args'=>''),
-        'v' => array('Ver version', 
-                      'long' => 'version',
-                      'args'=>'')   
+    /**
+     * @var array<string, array<string, string>>
+     */
+    public static array $optionDefs = array(
+        'u' => array('desc' => 'Muestra la ayuda extendida e informacion del comando.',
+                     'long' => 'usage',
+                     'args' => ''),
+        'h' => array('desc' => 'Muestra la información de uso, command <options>.',
+                     'long' => 'help',
+                     'args' => ''),
+        'p' => array('desc' => 'Muestra la información de uso, command <options>.',
+                     'long' => 'pipe',
+                     'args' => '<path>'),
+        'r' => array('desc' => 'Ruta al repositorio',
+                     'long' => 'repository',
+                     'args' => '<path>'),
+        's' => array('desc' => 'Lista los archivos composer.json en el DIR del repositorio',
+                     'long' => 'show',
+                     'args' => '<path>'),
+        't' => array('desc' => 'Vista de Arbol dependencias repositorio',
+                     'long' => 'treeview',
+                     'args' => '<path>'),
+        'e' => array('desc' => 'Explora el repositorio muestra Vista de Arbol de cada SCHEMA',
+                     'long' => 'explore',
+                     'args' => '<path>'),
+        'l' => array('desc' => 'Muestra contenido del log del comando.',
+                     'long' => 'log',
+                     'args' => ''),
+        'v' => array('desc' => 'Ver version',
+                     'long' => 'version',
+                     'args' => '')
     );
 
     /**
@@ -146,12 +151,12 @@ MAN;
      */
     public function configureCli(): void
     {
-        self::$MAN_HEADER = PHP_EOL.
-                            "$this->_appname                ".
+        self::$MAN_HEADER = PHP_EOL .
+                            "$this->appname                " .
                             "Manual General del Comando        (1)";
 
-        self::$MAN_FOOTER = PHP_EOL."Version : $this->_version                     ".
-                            "$this->_versiondate                $this->_appname (1)";
+        self::$MAN_FOOTER = PHP_EOL . "Version : $this->version                     " .
+                            "$this->versiondate                $this->appname (1)";
 
         $shortOptionsList = array_keys(self::$optionDefs);
         self::$options = $this->parseOptions($_SERVER['argv'], $shortOptionsList);
@@ -159,48 +164,44 @@ MAN;
 
         //  $parser = new Parser();
         //  self::$options = $parser->parse($_SERVER['argv']);
-
     }
 
     /**
-     * Method parseOptions Valida los argumentos de la linea de comando y 
+     * Method parseOptions Valida los argumentos de la linea de comando y
      *                     retorna un array con las opciones.
      *
-     * @param array $args    array con los argumentos de la linea de comandos.
-     * @param array $allowed Array con las opciones disponibles.
+     * @param array<int, mixed>  $args    Array con argumentos de linea de comandos.
+     * @param array<int, string> $allowed Array con las opciones disponibles.
      *
-     * @return array retorna un array con las opciones y parametros.
+     * @return array<int|string, string> $options Array con opciones y parametros.
      *
      * @example
      *   -h -s -l
      *    array()
      */
-    static public function parseOptions($args, $allowed = array()): array
+    public static function parseOptions(array $args, array $allowed): array
     {
- 
-        $options = array();
+
+        $options = [];
         $count = count($args);
- 
+
         // retrive arguments and populate $options array
         for ($i = 1; $i < $count; $i++) {
             // retrieve arguments in form of --abc=foo
             if (preg_match('/^--([-A-Z0-9]+)=(.+)$/i', $args[$i], $matches)) {
-            
-                try { 
+                try {
                     if (empty($allowed) || in_array($matches[1], $allowed)) {
                         $options[$matches[1]] = $matches[2];
                     } else {
                         throw new CliException('Opcion Desconocida ' . $matches[1]);
                     }
-                } catch (CliException $e){
+                } catch (CliException $e) {
                     $e->cliError();
                 }
-
-            } else if (substr($args[$i], 0, 2) == '--') { // retrieve --abc arguments
-                
+            } elseif (substr($args[$i], 0, 2) == '--') { // retrieve --abc arguments
                 $tmp = substr($args[$i], 2);
 
-                try{
+                try {
                     if (empty($allowed) || in_array($tmp, $allowed)) {
                         $options[$tmp] = true;
                     } else {
@@ -209,16 +210,14 @@ MAN;
                 } catch (CliException $e) {
                     $e->cliError();
                 }
-
             } else {  // retrieve -abc foo, -abc, -a foo and -a arguments
                 try {
                     if ($args[$i][0] == '-' && strlen($args[$i]) > 1) {
-              
                         // set all arguments to true except for last in sequence
                         for ($j = 1; $j < strlen($args[$i]) - 1; $j++) {
-
                             try {
-                                if (empty($allowed)
+                                if (
+                                    empty($allowed)
                                     || in_array($args[$i][$j], $allowed)
                                 ) {
                                     $options[$args[$i][$j]] = true;
@@ -227,16 +226,15 @@ MAN;
                                         'Opcion Desconocida ' . $args[$i][$j]
                                     );
                                 }
-                            } catch (CliException $e){    
+                            } catch (CliException $e) {
                                     $e->cliError();
                             }
                         }
-      
+
                         $tmp = substr($args[$i], -1, 1);
 
                         try {
                             if (empty($allowed) || in_array($tmp, $allowed)) {
-
                                 if ($i + 1 < $count && $args[$i + 1][0] != '-') {
                                     $options[$tmp] = $args[$i + 1];
                                     $i++;
@@ -246,23 +244,23 @@ MAN;
                             } else {
                                 throw new CliException('Opcion Desconocida ' . $tmp);
                             }
-                        } catch (CliException $e){
+                        } catch (CliException $e) {
                             $e->cliError();
                         }
                     } else {
                         throw new CliException('Formato Invalido ' . $args[$i]);
                     }
-                } catch (CliException $e){
-                      $e->cliError();               
+                } catch (CliException $e) {
+                      $e->cliError();
                 }
             }
         }
-    
+
         return $options;
     }
 
     /**
-     * Method help Muestra la ayuda extendida e informacion del comando, las 
+     * Method help Muestra la ayuda extendida e informacion del comando, las
      *        opciones del comando CLI basado en $optionDefs
      *
      * @return string
@@ -272,41 +270,40 @@ MAN;
         $strline = '';
 
         $strline = CliMsg::colorText(
-            self::$_logo, 
+            self::$logo,
             CliMsg::PURPLE_TXTCOD
         );
 
         $strline .= CliMsg::colorText(
-            self::$MAN_HEADER.PHP_EOL, 
+            self::$MAN_HEADER . PHP_EOL,
             CliMsg::BLUE_TXTCOD
         );
 
         $strline .= CliMsg::colorText(
-            self::$MAN_DESC.PHP_EOL, 
+            self::$MAN_DESC . PHP_EOL,
             CliMsg::BLUE_TXTCOD
         );
 
         $strline .= CliMsg::colorText(
-            self::usage(), 
+            self::usage(),
             CliMsg::GREEN_TXTCOD
         );
 
         $strline .= CliMsg::colorText(
-            self::$MAN_DIAGNOSTICS.PHP_EOL, 
+            self::$MAN_DIAGNOSTICS . PHP_EOL,
             CliMsg::BLUE_TXTCOD
         );
 
         $strline .= CliMsg::colorText(
-            self::$MAN_FOOTER.PHP_EOL, 
+            self::$MAN_FOOTER . PHP_EOL,
             CliMsg::BLUE_TXTCOD
         );
 
         return $strline;
-
     }
-    
+
     /**
-     * Method usage Devuelve el texto de uso en linea de comando y la 
+     * Method usage Devuelve el texto de uso en linea de comando y la
      *  descripcion de sus opciones
      *
      * @return string
@@ -324,19 +321,26 @@ MAN;
               . "\n";
 
         foreach (self::$optionDefs as $name => $def) {
-
             $def += array('default' => '', 'short' => false);
             $strline .= sprintf(
                 " %10s %-10s %-20s %s\n",
                 $def['long'] ? ('-' . $name) : '',
-                "--".$def['long'],
+                "--" . $def['long'],
                 $def['args'],
-                $def[0]
+                $def['desc']
             );
-
         }
         return $strline;
+    }
 
+    /**
+     * getFooter
+     *
+     * @return string
+     */
+    public function getFooter(): string
+    {
+        return self::$MAN_FOOTER;
     }
 
     /**
@@ -344,9 +348,8 @@ MAN;
      *
      * @return bool
      */
-    static function checkOS(): bool
+    public static function checkOS(): bool
     {
         return in_array(strtoupper(substr(PHP_OS, 0, 5)), self::VALID_OS);
     }
-
 }

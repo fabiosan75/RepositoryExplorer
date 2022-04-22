@@ -1,7 +1,8 @@
 <?php
-/** 
+
+/**
  * PHP version 7
- * 
+ *
  * @category Class
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -17,7 +18,7 @@ use RepositoryExplorer\Util\ComposerException;
 
 /**
  * Class JsonDecoder : Implementa los metodos para el acceso al FileSystem
- * 
+ *
  * @category Class
  * @package  RepositoryExplorer
  * @author   fabiosan75 <fabiosan75@gmail.com>
@@ -27,55 +28,61 @@ use RepositoryExplorer\Util\ComposerException;
 
 class JsonDecoder implements JsonDecoderInterface
 {
+    public FileReaderInterface $fileReader;
 
-    public $fileReader;
-    
-    private string $_jsonSchema;
-    
+    private string $jsonSchema;
+
     /**
      * Method __construct
      *
-     * @param $reader Instancia FileReaderInterface para acceso al .json
-     * 
+     * @param FileReaderInterface $reader Instancia para acceso al .json
+     *
      * @return void
      */
-    public function __construct(FileReaderInterface $reader ) 
+    public function __construct(FileReaderInterface $reader)
     {
-        $this->fileReader = $reader;        
+        $this->fileReader = $reader;
     }
- 
+
+    /**
+     * getReader
+     *
+     * @return FileReaderInterface
+     */
+    public function getReader(): FileReaderInterface
+    {
+        return $this->fileReader;
+    }
+
     /**
      * Method loadSchema Lee el contenido del archivo instanciado en $fileReader
      *                   valida que sea un json bien "formado" y retorna un array
      *                   con el SCHEMA
-     * 
-     * @return array
+     *
+     * @return array<string, array<string, string>|string>
      */
     public function loadSchema(): array
     {
         $dataSchema = [];
 
-        $this->_jsonSchema = $this->fileReader->readfile();
+        $this->jsonSchema = $this->fileReader->readfile();
 
         try {
             if ($this->validateJsonFormat()) {
-                $dataSchema = json_decode($this->_jsonSchema, true);
+                $dataSchema = json_decode($this->jsonSchema, true);
             } else {
                 throw new ComposerException(
                     "Formato Json Invalido "
-                    .$this->fileReader->getFileName()
+                    . $this->fileReader->getFileName()
                 );
-            } 
-
-        }
-        catch (ComposerException $e) {  
+            }
+        } catch (ComposerException $e) {
                 $e->jsonError();
         }
 
         return $dataSchema;
-
     }
-    
+
     /**
      * Method getSchema
      *
@@ -83,24 +90,23 @@ class JsonDecoder implements JsonDecoderInterface
      */
     public function getSchema(): string
     {
-        return $this->_jsonSchema;
+        return $this->jsonSchema;
     }
-    
+
     /**
      * Method validateJsonFormat
      * Valida que el formato del SCHEMA sea un JSON "bien" formado
-     * 
+     *
      * @return bool
      */
-    public function validateJsonFormat(): bool 
+    public function validateJsonFormat(): bool
     {
 
-        if (!empty($this->_jsonSchema)) {
-            @json_decode($this->_jsonSchema);
+        if (!empty($this->jsonSchema)) {
+            @json_decode($this->jsonSchema);
             return (json_last_error() === JSON_ERROR_NONE);
         }
-        
+
         return false;
     }
-
 }

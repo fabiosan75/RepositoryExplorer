@@ -31,15 +31,17 @@ phpcs:
         name: cytopia/phpcs
         entrypoint: ["/bin/ash", "-c"]
     script:
-        - phpcs *.php
+        - phpcs src/*.php
 
 phpstan:
     stage: static_analysis
-    image:
-        name: phpstan/phpstan
-        entrypoint: ["/bin/ash", "-c"]
+    image: ghcr.io/phpstan/phpstan
     script:
-        - phpstan analyse --no-interaction --ansi --error-format=table --no-progress --level 5 src
+        - analyse --no-progress --error-format gitlab > phpstan.json
+    artifacts:
+      when: always
+      reports:
+        codequality: phpstan.json
 
 test:
     stage: test

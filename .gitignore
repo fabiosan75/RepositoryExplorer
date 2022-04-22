@@ -1,4 +1,7 @@
 .vscode
 /vendor/
-log.txt
+/log.txt
 tmpTrash
+.gitlab-ci.yml
+.vscode/
+test/

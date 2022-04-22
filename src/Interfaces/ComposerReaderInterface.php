@@ -37,6 +37,13 @@ interface ComposerReaderInterface
     public function loadConfig(JsonDecoderInterface $jsonDecoder);
 
     /**
+     * getConfig
+     *
+     * @return array<string, array<string, string>|string>
+     */
+    public function getConfig(): array;
+
+    /**
      * Method hasAttribute  Verifica si Atributo/propiedad existe
      *                      en el composer->config Ej : name/version/require
      *
@@ -61,7 +68,7 @@ interface ComposerReaderInterface
      *
      * @param string $attrName [explicite description]
      *
-     * @return array<string>
+     * @return array<string, array<string, string>>
      */
     public function getAttrArray(string $attrName): array;
 

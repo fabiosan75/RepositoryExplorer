@@ -485,10 +485,8 @@ class PackageNode
                 continue;
             }
 
-            //$host = array_key_exists('url', $repository) ? parse_url($repository['url'], PHP_URL_HOST) : '';
             $host = parse_url($repository['url'], PHP_URL_HOST);
 
-            //  echo in_array($host, self::$repoHost)?'EN ARRAY':'NO EN ARRA';
             if (
                 !in_array($host, self::$repoHost)
                 || !is_array($repository)

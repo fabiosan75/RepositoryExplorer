@@ -2093,3 +2093,80 @@
 22-04-2022 23:23:25: CLI Error  Opcion Desconocida  in CliConfig.php:208
 22-04-2022 23:23:25: CLI Error  Formato Invalido src/ in CliConfig.php:251
 22-04-2022 23:23:25: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+22-04-2022 23:28:44: CLI Error  Formato Invalido worker in CliConfig.php:251
+22-04-2022 23:28:44: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+22-04-2022 23:28:44: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+22-04-2022 23:28:44: CLI Error  Opcion Desconocida level in CliConfig.php:196
+22-04-2022 23:28:44: CLI Error  Opcion Desconocida port in CliConfig.php:208
+22-04-2022 23:28:44: CLI Error  Formato Invalido 64850 in CliConfig.php:251
+22-04-2022 23:28:44: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+22-04-2022 23:28:44: CLI Error  Formato Invalido uy28dmji8b in CliConfig.php:251
+22-04-2022 23:28:44: CLI Error  Opcion Desconocida  in CliConfig.php:208
+22-04-2022 23:28:44: CLI Error  Formato Invalido src/ in CliConfig.php:251
+22-04-2022 23:28:44: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:43:13: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:43:13: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:43:13: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:43:13: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:43:13: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:43:13: CLI Error  Formato Invalido 51660 in CliConfig.php:251
+23-04-2022 21:43:13: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:43:13: CLI Error  Formato Invalido o0f0ez9a11 in CliConfig.php:251
+23-04-2022 21:43:13: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:43:13: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:43:13: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:43:21: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:43:21: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:43:21: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:43:21: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:43:21: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:43:21: CLI Error  Formato Invalido 51666 in CliConfig.php:251
+23-04-2022 21:43:21: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:43:21: CLI Error  Formato Invalido yl0hye086j in CliConfig.php:251
+23-04-2022 21:43:21: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:43:21: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:43:21: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:45:42: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:45:42: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:45:42: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:45:42: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:45:42: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:45:42: CLI Error  Formato Invalido 51738 in CliConfig.php:251
+23-04-2022 21:45:42: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:45:42: CLI Error  Formato Invalido 2qv80cs09z in CliConfig.php:251
+23-04-2022 21:45:42: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:45:42: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:45:42: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:45:49: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:45:49: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:45:49: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:45:49: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:45:49: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:45:49: CLI Error  Formato Invalido 51744 in CliConfig.php:251
+23-04-2022 21:45:49: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:45:49: CLI Error  Formato Invalido 0yvyfxwrl0 in CliConfig.php:251
+23-04-2022 21:45:49: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:45:49: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:45:49: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:45:58: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:45:58: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:45:58: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:45:58: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:45:58: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:45:58: CLI Error  Formato Invalido 51752 in CliConfig.php:251
+23-04-2022 21:45:58: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:45:58: CLI Error  Formato Invalido 7vzgbsu8dm in CliConfig.php:251
+23-04-2022 21:45:58: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:45:58: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:45:58: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77
+23-04-2022 21:46:11: CLI Error  Formato Invalido worker in CliConfig.php:251
+23-04-2022 21:46:11: CLI Error  Opcion Desconocida configuration in CliConfig.php:208
+23-04-2022 21:46:11: CLI Error  Formato Invalido /Library/WebServer/Documents/TestAmpliffy/Repositorios_Ampliffy/RepositoryExplorer/phpstan.neon in CliConfig.php:251
+23-04-2022 21:46:11: CLI Error  Opcion Desconocida level in CliConfig.php:196
+23-04-2022 21:46:11: CLI Error  Opcion Desconocida port in CliConfig.php:208
+23-04-2022 21:46:12: CLI Error  Formato Invalido 51757 in CliConfig.php:251
+23-04-2022 21:46:12: CLI Error  Opcion Desconocida identifier in CliConfig.php:208
+23-04-2022 21:46:12: CLI Error  Formato Invalido jsc60nukb8 in CliConfig.php:251
+23-04-2022 21:46:12: CLI Error  Opcion Desconocida  in CliConfig.php:208
+23-04-2022 21:46:12: CLI Error  Formato Invalido src/ in CliConfig.php:251
+23-04-2022 21:46:12: CLI Error  Ingrese una opción valida,por favor valide la ayuda [-u --usage -h --help] in CliApp.php:77

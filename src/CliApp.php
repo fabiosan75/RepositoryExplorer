@@ -213,11 +213,9 @@ class CliApp extends CliConfig
                     echo $fileReader->readFile();
 
                     break;
-            /*   $pckExplorer = new PackageExplorer();
-
-                $listComposerFiles = $pckExplorer::listRepository($file);
-
-                $pckExplorer::analizePckRepository($listComposerFiles);
+            /**   $pckExplorer = new PackageExplorer();
+             *  $listComposerFiles = $pckExplorer::listRepository($file);
+             *  $pckExplorer::analizePckRepository($listComposerFiles);
             */
             }
         }

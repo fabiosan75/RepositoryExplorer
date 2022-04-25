@@ -38,7 +38,7 @@ class Logger
     public static function msgLogger(string $msg)
     {
         $msg = date('d-m-Y H:i:s') . ': ' . $msg;
-        
+
         if ($file = fopen('./log.txt', 'a+')) {
             fwrite($file, $msg . "\r\n");
             fclose($file);

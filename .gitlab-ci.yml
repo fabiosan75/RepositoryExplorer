@@ -18,30 +18,24 @@ build_app:
     stage: build
     image:
         name: php:7.4-apache
-    script:
+    before_script:
         - apt-get update
         - apt-get install -y software-properties-common
         - apt-get install -y zip unzip
         - php -r "copy('https://getcomposer.org/download/latest-stable/composer.phar', 'composer.phar');"
+    script:
         - php composer.phar install --prefer-dist --no-progress
 
 phpcs:
     stage: static_analysis
-    image:
-        name: cytopia/phpcs
-        entrypoint: ["/bin/ash", "-c"]
     script:
-        - phpcs src/*.php
+        - ls -la *
+        - php vendor/bin/phpcs --standard=PSR12 src/
 
 phpstan:
     stage: static_analysis
-    image: ghcr.io/phpstan/phpstan
     script:
-        - analyse --no-progress --error-format gitlab > phpstan.json
-    artifacts:
-      when: always
-      reports:
-        codequality: phpstan.json
+        - php vendor/bin/phpstan analyse -c phpstan.neon
 
 test:
     stage: test

@@ -37,7 +37,7 @@ interface ComposerReaderInterface
     public function loadConfig(JsonDecoderInterface $jsonDecoder);
 
     /**
-     * getConfig
+     * Method getConfig
      *
      * @return array<string, array<string, string>|string>
      */

@@ -5,3 +5,4 @@ tmpTrash
 .vscode/
 test/
 .phpunit.cache
+builds

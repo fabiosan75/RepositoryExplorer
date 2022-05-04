@@ -4,8 +4,12 @@ use \PHPUnit\Framework\TestCase;
 
 
 class unitTest extends TestCase {
-
-    public function testTest()
+    /**
+     * A basic unit test example.
+     *
+     * @return void
+     */
+    public function testTest(): void
     {
         $this->assertTrue(true);
     }

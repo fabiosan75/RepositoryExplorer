@@ -26,19 +26,19 @@ git clone https://github.com/fabiosan75/RepositoryExplorer.git
 
 El script puede ejecutarse pasándolo como argumento al interprete de php :
 
-`$ > php src/CliApp.php [opcion] <argumento>`
+`$ > php src/RepositoryExplorer.php [opcion] <argumento>`
 
 Tambien puede ejecutarse directamente como aplicación :
 
-`$ > ./src/CliApp.php [opcion] <argumento>`
+`$ > ./src/RepositoryExplorer.php [opcion] <argumento>`
 
 El script contiene en la primer línea un [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) para sistemas operativos basados en Linux #!/usr/bin/php  En el caso de ejecutarlos directamente no olvidar hacer el script ejecutable : 
 
-`$ > chmod +x src/CliApp.php`
+`$ > chmod +x src/RepositoryExplorer.php`
 
 Cuando las lineas generadas por el comando sean mayores al buffer de su consola o terminal, puede redireccionar la salida del comando a un archivo de texto que podrá visualizar en cualquier editor.
 
-`$ > php src/CliApp.php [opcion] <argumento> > packageResult.txt` 
+`$ > php src/RepositoryExplorer.php [opcion] <argumento> > packageResult.txt` 
 
 ### Ver Ayuda
 
@@ -50,7 +50,7 @@ command [-h] [-u]
 ```
 
 <pre>
-<b>USO:	 src/CliApp.php </b>[OPTION] <_args>
+<b>USO:	 src/RepositoryExplorer.php </b>[OPTION] <_args>
 
 <b>OPCIONES:</b>
 
@@ -69,7 +69,7 @@ command [-h] [-u]
 
 > Listar los archivos composer.json en el DIR del repositorio
 
-`php src/CliApp.php -s ../   `
+`php src/RepositoryExplorer.php -s ../   `
 
 Explora el directorio especificado en <b>../</b> en busqueda de los archivos composer.json de repositorio.
 
@@ -82,7 +82,7 @@ Explora el directorio especificado en <b>../</b> en busqueda de los archivos com
 </pre>
 > Ver SCHEMAs en el repositorio
 
-`php src/CliApp.php -e ../   `
+`php src/RepositoryExplorer.php -e ../   `
 
 Explora el directorio especificado en <b>../</b> y genera un treeView de los schemas encontrados
 <pre>
@@ -141,7 +141,7 @@ Explora el directorio especificado en <b>../</b> y genera un treeView de los sch
 
 > Arbol de dependencias de repositorio
 
-`php src/CliApp.php -t ../   `
+`php src/RepositoryExplorer.php -t ../   `
 
 Explora el directorio especificado en <b>../</b> generando de los SCHEMAs encontrados la dependencias del repositorio por proyecto **type: "project"**
 ```

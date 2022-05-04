@@ -13,7 +13,7 @@
 
 namespace RepositoryExplorer;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+#require_once __DIR__ . '/../vendor/autoload.php';
 
 use RepositoryExplorer\Util\CliException;
 use RepositoryExplorer\CliConfig;
@@ -221,11 +221,3 @@ class CliApp extends CliConfig
         }
     }
 }
-
-// echo PHP_BINDIR;
-
-$cli = new CliApp();
-$cli->run();
-//$cli->configureCli();
-
-echo "ok";

@@ -1,3 +1,16 @@
+default:
+  image: php:7.4-fpm
+  
+before_script:
+  - docker info
+
+build_image:
+  script:
+    - docker build -t my-docker-image .
+    - docker run my-docker-image /script/to/run/tests
+
+images:
+    - ruby:2.1
 stages:
     - build
     - static_analysis
@@ -16,8 +29,8 @@ cache:
 #JOBS
 build_app:
     stage: build
-    image:
-        name: php:7.4-apache
+#    image:
+#        name: php:7.4-fpm
     before_script:
         - apt-get update
         - apt-get install -y software-properties-common
@@ -39,6 +52,5 @@ phpstan:
 
 test:
     stage: test
-    image: php:7.3
     script:
         - php vendor/bin/phpunit

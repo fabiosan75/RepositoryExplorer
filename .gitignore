@@ -2,6 +2,5 @@
 /vendor/
 /log.txt
 tmpTrash
-.gitlab-ci.yml
 .vscode/
 test/

@@ -6,3 +6,4 @@ tmpTrash
 test/
 .phpunit.cache
 builds
+cache/

@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS `ComposerPackageNode` (
+  `IdNode` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT 'Parent ID for the package',
+  `IdParent` tinyint(4) DEFAULT '0' COMMENT 'Parent ID for the package',
+  `Name` char(80) DEFAULT '' COMMENT 'name of the package, attribute in Composer SCHEMA ',
+  `ShortName` text COMMENT 'ShortName of the package',
+  `Vendor` char(80) DEFAULT NULL COMMENT 'Vendor attribute in Composer SCHEMA ',
+  `Version` char(12) DEFAULT NULL COMMENT 'Version attribute in Composer SCHEMA ',
+  `Source` char(120) DEFAULT NULL COMMENT 'src/Path to package repository',
+  `Type` char(20) DEFAULT NULL COMMENT 'Type attribute in Composer SCHEMA',
+  `Description` text COMMENT 'Description attribute in Composer SCHEMA ',
+  `License` char(20) DEFAULT NULL COMMENT 'license attribute in Composer SCHEMA ',
+  `Authors` varchar(200) DEFAULT '' COMMENT 'authors Attr authors in Comp SCHEMA / Json Format',
+  `Attributes` text COMMENT 'Attr authors in Composer SCHEMA ',
+  `Repositories` varchar(255) DEFAULT '' COMMENT 'Attr authors in Composer SCHEMA / Json Format',
+  `Requires` text COMMENT 'Attr authors in Composer SCHEMA ',
+  `UserTrCr` char(60) DEFAULT '' COMMENT 'user who created the row',
+  `DateTrCr` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'Creation datetime',
+  `UserTrEd` char(60) DEFAULT '' COMMENT 'Last user changed the row',
+  `DateTrEd` datetime DEFAULT '0000-00-00 00:00:00' COMMENT 'datetime of data change',
+  PRIMARY KEY (`IdNode`),
+  KEY `IdParent` (`IdParent`),
+  CONSTRAINT `composerpackagenode_ibfk_1` FOREIGN KEY (`IdParent`) REFERENCES `ComposerPackageNode` (`IdNode`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Composer package dependency, Node of tree composer project dependencies'

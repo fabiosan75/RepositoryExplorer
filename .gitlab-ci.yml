@@ -1,16 +1,3 @@
-default:
-  image: php:7.4-fpm
-  
-before_script:
-  - docker info
-
-build_image:
-  script:
-    - docker build -t my-docker-image .
-    - docker run my-docker-image /script/to/run/tests
-
-images:
-    - ruby:2.1
 stages:
     - build
     - static_analysis
@@ -29,8 +16,8 @@ cache:
 #JOBS
 build_app:
     stage: build
-#    image:
-#        name: php:7.4-fpm
+    image:
+        name: php:7.4-fpm
     before_script:
         - apt-get update
         - apt-get install -y software-properties-common
@@ -38,19 +25,27 @@ build_app:
         - php -r "copy('https://getcomposer.org/download/latest-stable/composer.phar', 'composer.phar');"
     script:
         - php composer.phar install --prefer-dist --no-progress
+        - ls -la *
+        - php vendor/bin/phpcs --standard=PSR12 src/
 
 phpcs:
     stage: static_analysis
+    image:
+        name: php:7.4-fpm
     script:
         - ls -la *
         - php vendor/bin/phpcs --standard=PSR12 src/
 
 phpstan:
     stage: static_analysis
+    image:
+        name: php:7.4-fpm
     script:
         - php vendor/bin/phpstan analyse -c phpstan.neon
 
 test:
     stage: test
+    image:
+        name: php:7.4-fpm
     script:
         - php vendor/bin/phpunit

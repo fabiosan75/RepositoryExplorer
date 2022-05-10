@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `ComposerPackageNode` (
+CREATE TABLE IF NOT EXISTS `ComposerPackageNode`(
   `IdNode` tinyint(4) NOT NULL AUTO_INCREMENT COMMENT 'Parent ID for the package',
   `IdParent` tinyint(4) DEFAULT '0' COMMENT 'Parent ID for the package',
   `Name` char(80) DEFAULT '' COMMENT 'name of the package, attribute in Composer SCHEMA ',

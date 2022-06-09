@@ -1,0 +1,55 @@
+.Ng_marketing_bottom { display: table;width: 100%;}
+.Ng_marketing_item + .Ng_marketing_item {border-left:1px solid #fff;}
+.Ng_marketing_item .Ng_market_item_top {display: table;width: 100%;background-color:#20ADE3;border-radius:5px 5px 0px 0px}
+.Ng_market_item_top .Ng_item_top_txt {padding: 20px;}
+.Ng_market_item_top .Ng_item_top_txt h1{color:#fff; text-transform:uppercase; font: 700 14px Raleway;}
+.Ng_market_item_top .Ng_item_top_txt h2{color:#fff; text-transform:uppercase; font: 14px Raleway;}
+.Ng_market_item_middle {color:#444;padding:20px 25px; font:14px Lora; border-top:1px solid #fff; border-bottom:1px solid #fff; background-color:#f6f6f6;border-radius:0px 0px 5px 5px;}
+.Ng_market_item_bottom {padding:20px 25px; text-transform:uppercase; ;font:13px montserrat;background-color:#ededed; }
+.Ng_market_item_bottom a, .Ng_market_item_bottom a:visited{color:#888;}
+.Ng_market_item_bottom:hover a{color:#fff !important;}
+.Ng_market_item_bottom:hover{background:#ccc; }
+
+div#HTML46 ul.Right_NG_items_menu { padding: 0px; margin-top: 30px; display: inline-table;}
+div#HTML46 ul.Right_NG_items_menu li {color: #fff; float: left;display: inherit;line-height: 40px; margin:0px auto 2px auto; text-align: center;  padding: 0px;  transition: background-color 0.3s ease;}
+div#HTML46 ul.Right_NG_items_menu li:nth-child(1){ width: calc(43% - 3px); margin-right: 2px;}
+div#HTML46 ul.Right_NG_items_menu li:nth-child(2) { width: 57%;}
+div#HTML46 ul.Right_NG_items_menu li:nth-child(3){ width: 57%;margin-right: 2px;}
+div#HTML46 ul.Right_NG_items_menu li:nth-child(4) { width: calc(43% - 3px); }
+div#HTML46 ul.Right_NG_items_menu li a {background: #20ADE3; display:table-cell; color: #fff !important; text-transform: uppercase; font-weight: 700; font-size: 12px;transition: background-color 0.3s ease;border-radius:5px;}
+div#HTML46 .Right_NG_atrib_menu ul.Right_NG_items_menu li {line-height: 40px;}
+div#HTML46 ul.Right_NG_items_menu li a:hover {background:#00a6eb;}
+
+div#HTML49 ul.Right_NG_items_menu { padding: 0px; margin-top: 30px; display: block;}
+div#HTML49 ul.Right_NG_items_menu li {  margin-top: 2px;color: #fff; float: none;margin-left: 2px;display: inherit;line-height: 26px; margin:0px auto 10px auto; text-align: center;  padding: 0px;  transition: background-color 0.3s ease;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(1):hover{background-color:rgba(77,201,255,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(1) a {border-left: solid 4px #4dc9ff;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(2):hover{background-color:rgba(245, 245, 210, 0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(2) a {border-left: solid 4px #f5f5dc;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(3):hover{background-color:rgba(255,0,255,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(3) a {border-left: solid 4px #FF00FF;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(4):hover{background-color:rgba(241,90,36,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(4) a {border-left: solid 4px #f15a24;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(5):hover{background-color:rgba(247,147,30,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(5) a {border-left: solid 4px #F7931E;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(6):hover{background-color:rgba(141,73,27,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(6) a {border-left: solid 4px #8D4925;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(7):hover{background-color:rgba(77,201,255,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(7) a {border-left: solid 4px #0144CC;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(8):hover{background-color:rgba(230,0,28,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(8) a {border-left: solid 4px #E60026;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(9):hover{background-color:rgba(255,0,255,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(9) a {border-left: solid 4px #ff00ff;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(10):hover{background-color:rgba(233,243,84,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(10) a {border-left: solid 4px #e9f354;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(11):hover{background-color:rgba(140,198,63,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(11) a {border-left: solid 4px #8CC63F;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(12):hover{background-color:rgba(171,65,196,0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(12) a {border-left: solid 4px #AB41C4;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(13):hover{background-color:rgba(65, 123, 196, 0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(13) a {border-left: solid 4px #417bc4;}
+div#HTML49 ul.Right_NG_items_menu li:nth-child(14):hover{background-color:rgba(30, 247, 197, 0.6); }
+div#HTML49 ul.Right_NG_items_menu li:nth-child(14) a {border-left: solid 4px #1ef7c5;}
+div#HTML49 ul.Right_NG_items_menu li a {display:table-cell; color: #555 !important; text-transform: uppercase; font-weight: 700; font-size: 12px;transition: background-color 0.3s ease;padding-left:20px}
+
+/* POST STYLES */

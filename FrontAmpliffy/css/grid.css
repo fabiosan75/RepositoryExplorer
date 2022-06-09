@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
+a:link {
+    text-decoration:none;
+    color: #555555;
+}
+a:visited {
+    text-decoration:none;
+    color: #555555;
+}
+a:hover {
+    text-decoration:underline;
+    color: #999999;
+}
+
+.grid-container > * {
+//    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+//    border-radius: 5px;
+ padding: 10px;
+/* text-align: center;*/
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(218, 218, 218);
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+}
+.navbar {
+    grid-area: navbar;
+    background-color: bisque;
+}
+
+.main {
+    grid-area: main;
+//    background-color: chartreuse;  
+}
+.sidebar {
+    grid-area: sidebar;
+//    background-color: coral;
+}
+.footer {
+    grid-area: footer;
+    background-color: cornflowerblue;  
+}
+.grid-container {
+    display: grid;
+    gap : 10px;
+    align-content: center;
+    grid-template-areas: 
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+}
+
+@media screen and (max-width: 640px) {
+    .main {
+      background: black;
+    }
+    .post {
+        min-width: 480px;
+    }
+    .main {
+        max-width: 620px;
+    }
+    .social_fb {
+        min-width: 90px;
+    }
+    .social_twt {
+        min-width: 80px;
+    }
+  }
+  
+ 
+
